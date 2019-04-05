@@ -73,7 +73,7 @@ void road::set_into_channel_id(int into_channel_id) {
 
 // road.wait_road_direction_count = [0, 0, 0]
 void road::init_wait_into_road_direction_count() {
-    this->wait_into_road_direction_count = vector<int>(3, 0);
+    this->wait_into_road_direction_count = vector<vector<int>>(config().priority_N, vector<int>(3, 0));
 }
 
 // road.wait_car_forefront_of_each_channel.clear();
@@ -114,23 +114,32 @@ void road::have_car_through_cross(int channel_id) {
 }
 
 // wait_into_road_direction_count[car_direct] += 1
-void road::add_wait_into_road_direction_count(int car_direct) {
-    this->wait_into_road_direction_count[car_direct] += 1;
+void road::add_wait_into_road_direction_count(int car_priority, int car_direct) {
+    this->wait_into_road_direction_count[car_priority][car_direct] += 1;
 }
 // wait_into_road_direction_count[car_direct] -= 1
-void road::sub_wait_into_road_direction_count(int car_direct) {
-    this->wait_into_road_direction_count[car_direct] -= 1;
+void road::sub_wait_into_road_direction_count(int car_priority, int car_direct) {
+    this->wait_into_road_direction_count[car_priority][car_direct] -= 1;
 }
 
 // check whether car_turn_direct can enter this road
-bool road::check_direct_priority(int car_turn_direct) {
+bool road::check_direct_priority(int car_priority, int car_turn_direct) {
     for (int i = 0; i < car_turn_direct; i ++)
-        if (this->wait_into_road_direction_count[i] > 0)
+        if (this->wait_into_road_direction_count[car_priority][i] > 0)
             return false;
-        else if (this->wait_into_road_direction_count[i] < 0 || this->wait_into_road_direction_count[i] > 1) {
+        else if (this->wait_into_road_direction_count[car_priority][i] < 0 || this->wait_into_road_direction_count[car_priority][i] > 1) {
             cout << "road id = " << this->id << " from = " << this->from << " to = " << this->to << endl;
             cout << "road::check_direct_priority error !!!!!!!!!!!!!!!!!!" << endl;
         }
+    for (car_priority ++; car_priority < config().priority_N; car_priority ++) {
+        for (int i = 0; i < 3; i ++)
+            if (this->wait_into_road_direction_count[car_priority][i] > 0)
+                return false;
+            else if (this->wait_into_road_direction_count[car_priority][i] < 0 || this->wait_into_road_direction_count[car_priority][i] > 1) {
+                cout << "road id = " << this->id << " from = " << this->from << " to = " << this->to << endl;
+                cout << "road::check_direct_priority error !!!!!!!!!!!!!!!!!!" << endl;
+            }
+    }
     return true;
 }
 

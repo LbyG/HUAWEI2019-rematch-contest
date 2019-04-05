@@ -15,10 +15,16 @@ using namespace std;
 
 class overall_schedule {
 private:
+    long double metric_a;
+    long double metric_b;
+    // arrive car id count
     map<int, int> arrive_car_id_count;
+    // timestamp
     int T;
+    // different priority cars all arrive destination time
     vector<int> arrive_T;
-    vector<int> all_cars_running_time;
+    // different priority sum of cars running time 
+    vector<long long> all_cars_running_time;
     // N = cars_wait_schedule_start_time_n + cars_wait_run_n + cars_running_n + cars_arrive_destination_n
     // number of cars which T < car.schedule_start_time
     vector<int> cars_wait_schedule_start_time_n;
@@ -70,6 +76,9 @@ public:
     bool schedule_cars_one_time_unit();
     // return all cars arrive to_cross_id need how much times
     int schedule_cars(); 
+    
+    // count metric a and metric b
+    void count_metric_ab();
     
     // output car schedule status
     void output_schedule_status();

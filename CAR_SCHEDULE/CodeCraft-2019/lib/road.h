@@ -25,7 +25,7 @@ private:
     // channel 0 to into_channel_id-1 can't into, initial value is 0 and into_channel_id < channel
     int into_channel_id;
     // size = 3, wait_into_road_direction_count[0] is straight, wait_into_road_direction_count[1] is left, wait_into_road_direction_count[2] is right
-    vector<int> wait_into_road_direction_count;
+    vector<vector<int>> wait_into_road_direction_count;
     // dis_to_cross from small to large
     // if dis_to_cross equal, channel_id from small to large
     priority_queue<car, vector<car>, cmp_car_dis_to_cross_and_channel_id> wait_car_forefront_of_each_channel;
@@ -64,11 +64,11 @@ public:
     void have_car_through_cross(int channel_id);
     
     // wait_into_road_direction_count[car_direct] += 1
-    void add_wait_into_road_direction_count(int car_direct);
+    void add_wait_into_road_direction_count(int car_priority, int car_direct);
     // wait_into_road_direction_count[car_direct] -= 1
-    void sub_wait_into_road_direction_count(int car_direct);
+    void sub_wait_into_road_direction_count(int car_priority, int car_direct);
     // check whether car_turn_direct can enter this road
-    bool check_direct_priority(int car_turn_direct);
+    bool check_direct_priority(int car_priority, int car_turn_direct);
     // add car wait to run in road
     void add_car_wait_to_run_in_road(car car_wait_to_run);
     

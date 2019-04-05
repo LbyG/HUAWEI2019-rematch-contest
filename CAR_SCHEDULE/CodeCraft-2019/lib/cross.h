@@ -46,6 +46,10 @@ public:
     void update_road_state_in_cross();
     void roads_into_cross_sort_by_id();
     
+    // Schedule cars which arrive schedule time or wait start
+    // cars_wait_schedule_start_time_list -> cars_wait_run_list
+    // cars_wait_run_list -> cars_in_road
+    void schedule_cars_wait_run(int cars_wait_run_priority, vector<int> &cars_running_n, vector<int> &cars_wait_schedule_start_time_n, list<road> &roads_connect_cross, int T);
     // car to next road, maybe return -2, -1, 0, 1
     // if road is be termination status cars fill up return -2
     // else if car speed_in_road <= car.dis_to_cross in previous road, then dis_move_in_road = 0 -> car don't enter this road, car.dis_to_cross = 0 and return -1 
@@ -54,7 +58,7 @@ public:
     int car_to_next_road(car car_through_cross);
     // schedule cars can through cross
     // return number of cars from wait status to termination status in this schedule
-    int schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars_arrive_destination_n, vector<int> &all_cars_running_time, int T, map<int, int> &arrive_car_id_count, vector<int> &arrive_T);
+    int schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars_arrive_destination_n, vector<long long> &all_cars_running_time, int T, map<int, int> &arrive_car_id_count, vector<int> &arrive_T, vector<int> &cars_wait_schedule_start_time_n, list<road> &roads_connect_cross);
     
     void show_car_next_road_status(car car_wait_run);
 };

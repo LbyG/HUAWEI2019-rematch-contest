@@ -82,7 +82,8 @@ void cross::update_road_state_in_cross(road* road_pointer) {
     int now_road_id = road_pointer->get_id();
     if (road_pointer->if_no_car_through_cross())
         return;
-    int next_road_id = road_pointer->get_car_priority_through_cross().get_next_road_in_path();
+    car car_through_cross = road_pointer->get_car_priority_through_cross();
+    int next_road_id = car_through_cross.get_next_road_in_path();
     if (next_road_id == -1) {
         int count = 0;
         for (map<int, road*>::iterator iter = this->roads_departure_cross.begin(); iter != this->roads_departure_cross.end(); iter ++) {
@@ -91,7 +92,7 @@ void cross::update_road_state_in_cross(road* road_pointer) {
                 if (next_road_id == now_road_id) {
                     cout << "cross::schedule_cars_in_cross error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
                 }
-                this->roads_departure_cross[next_road_id]->add_wait_into_road_direction_count(0);
+                this->roads_departure_cross[next_road_id]->add_wait_into_road_direction_count(car_through_cross.get_priority(), 0);
                 count ++;
             }
             if (count > 1) {
@@ -102,7 +103,7 @@ void cross::update_road_state_in_cross(road* road_pointer) {
         return;
     } else {
         int car_direct = this->turn_direct[now_road_id][next_road_id];
-        this->roads_departure_cross[next_road_id]->add_wait_into_road_direction_count(car_direct);
+        this->roads_departure_cross[next_road_id]->add_wait_into_road_direction_count(car_through_cross.get_priority(), car_direct);
     }
 }
 
@@ -111,6 +112,17 @@ void cross::update_road_state_in_cross(road* road_pointer) {
 void cross::update_road_state_in_cross() {
     for (vector<road*>::iterator iter = roads_into_cross.begin(); iter != roads_into_cross.end(); iter ++) {
         this->update_road_state_in_cross(*iter);
+    }
+}
+
+// Schedule cars which arrive schedule time or wait start
+// cars_wait_schedule_start_time_list -> cars_wait_run_list
+// cars_wait_run_list -> cars_in_road
+void cross::schedule_cars_wait_run(int cars_wait_run_priority, vector<int> &cars_running_n, vector<int> &cars_wait_schedule_start_time_n, list<road> &roads_connect_cross, int T) {
+    for (list<road>::iterator iter = roads_connect_cross.begin(); iter != roads_connect_cross.end(); iter ++) {
+        int cars_wait_run_to_running_N = iter->schedule_cars_wait_run(cars_wait_run_priority, T);
+        cars_wait_schedule_start_time_n[cars_wait_run_priority] -= cars_wait_run_to_running_N;
+        cars_running_n[cars_wait_run_priority] += cars_wait_run_to_running_N;
     }
 }
 
@@ -128,7 +140,7 @@ int cross::car_to_next_road(car car_through_cross) {
 
 // schedule cars can through cross
 // return number of cars from wait status to termination status in this schedule
-int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars_arrive_destination_n, vector<int> &all_cars_running_time, int T, map<int, int> &arrive_car_id_count, vector<int> &arrive_T) {
+int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars_arrive_destination_n, vector<long long> &all_cars_running_time, int T, map<int, int> &arrive_car_id_count, vector<int> &arrive_T, vector<int> &cars_wait_schedule_start_time_n, list<road> &roads_connect_cross) {
     int wait_to_termination_n = 0;
     for (vector<road*>::iterator iter = this->roads_into_cross.begin(); iter != this->roads_into_cross.end(); iter ++) {
         while (!(*iter)->if_no_car_through_cross()) {
@@ -144,6 +156,12 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                         }
                         next_road_id = iter1->first;
                         
+                    }
+                }
+                if (next_road_id != -1) {
+                    road* next_road = this->roads_departure_cross[next_road_id];
+                    if (!next_road->check_direct_priority(car_through_cross.get_priority(), 0)) {
+                        break;
                     }
                 }
                 int priority_val = car_through_cross.get_priority();
@@ -164,14 +182,15 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                 wait_to_termination_n += (*iter)->schedule_cars_running_in_channel(channel_id);
                 // update direct priority
                 if (next_road_id != -1)
-                    this->roads_departure_cross[next_road_id]->sub_wait_into_road_direction_count(0);
+                    this->roads_departure_cross[next_road_id]->sub_wait_into_road_direction_count(car_through_cross.get_priority(), 0);
                 this->update_road_state_in_cross(*iter);
+                this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
                 continue;
             } else 
                 next_road_id = car_through_cross.get_next_road_in_path();
             road* next_road = this->roads_departure_cross[next_road_id];
             int car_turn_direct = this->turn_direct[((*iter)->get_id())][next_road->get_id()];
-            if (next_road->check_direct_priority(car_turn_direct)) 
+            if (next_road->check_direct_priority(car_through_cross.get_priority(), car_turn_direct)) 
             {
                 // car direct have priority enter to road
                 int channel_id = car_through_cross.get_channel_id();
@@ -179,8 +198,9 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                     // road is be fill up by cars which is termination status
                     wait_to_termination_n += (*iter)->forefront_car_remain_in_cross(channel_id);
                     // update direct priority
-                    next_road->sub_wait_into_road_direction_count(car_turn_direct);
+                    next_road->sub_wait_into_road_direction_count(car_through_cross.get_priority(), car_turn_direct);
                     this->update_road_state_in_cross(*iter);
+                    this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
                     continue;
                 } else {
                     // road don't be fill up
@@ -189,8 +209,9 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                         // car speed in next raod < dis_to_cross, so car be remain in cross
                         wait_to_termination_n += (*iter)->forefront_car_remain_in_cross(channel_id);
                         // update direct priority
-                        next_road->sub_wait_into_road_direction_count(car_turn_direct);
+                        next_road->sub_wait_into_road_direction_count(car_through_cross.get_priority(), car_turn_direct);
                         this->update_road_state_in_cross(*iter);
+                        this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
                         continue;
                     } else if (flag == 0) {
                         // car block by car which is wait state
@@ -201,8 +222,9 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                         (*iter)->have_car_through_cross(channel_id);
                         wait_to_termination_n += (*iter)->schedule_cars_running_in_channel(channel_id);
                         // update direct priority
-                        next_road->sub_wait_into_road_direction_count(car_turn_direct);
+                        next_road->sub_wait_into_road_direction_count(car_through_cross.get_priority(), car_turn_direct);
                         this->update_road_state_in_cross(*iter);
+                        this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
                         continue;
                     }
                 }
@@ -210,7 +232,6 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                 // car direct have priority enter to road
                 break;
             }
-            
         }
     }
     return wait_to_termination_n;

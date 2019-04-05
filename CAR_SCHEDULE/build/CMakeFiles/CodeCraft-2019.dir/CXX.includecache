@@ -15,8 +15,6 @@ overall_schedule.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/CodeCraft-2019/overall_schedule.h
 util.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/CodeCraft-2019/util.h
-time.h
--
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/CodeCraft-2019/car.cpp
 car.h
@@ -148,6 +146,8 @@ fstream
 vector
 -
 algorithm
+-
+cmath
 -
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/CodeCraft-2019/road.cpp
