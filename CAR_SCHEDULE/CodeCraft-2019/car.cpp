@@ -15,14 +15,16 @@ car::car() {
 car::car(string car_info) {
     // car_info = (id,from,to,speed,planTime)
     vector<int> info_val = parse_string_to_int_vector(car_info);
-    if (info_val.size() != 5) {
-        cout << "car::car" << endl;
+    if (info_val.size() != 7) {
+        cout << "car::car error!!!!!!!!!!!!!!!" << endl;
     }
     this->id = info_val[0];
     this->from = info_val[1];
     this->to = info_val[2];
     this->speed = info_val[3];
     this->plan_time = info_val[4];
+    this->priority = info_val[5];
+    this->whether_preset = info_val[6];
     if (this->from == this->to)
         cout << "car::car error !!!!!!!!!!!!!" << this->id << endl;
     
@@ -68,6 +70,16 @@ int car::get_speed() const {
 // return car plan start time
 int car::get_plan_time() const {
     return this->plan_time;
+}
+
+// return car priority
+int car::get_priority() const {
+    return this->priority;
+}
+
+// return car whether preset
+int car::get_whether_preset() const {
+    return this->whether_preset;
 }
 
 void car::set_schedule_start_time(int time) {

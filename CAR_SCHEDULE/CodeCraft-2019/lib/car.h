@@ -19,6 +19,10 @@ private:
     int speed; 
     // car plan start time
     int plan_time; 
+    // car priority
+    int priority;
+    // car whether preset
+    int whether_preset;
     
     // car schedule start time
     int schedule_start_time;
@@ -47,6 +51,10 @@ public:
     int get_speed() const; 
     // return car plan start time
     int get_plan_time() const; 
+    // return car priority
+    int get_priority() const; 
+    // return car whether preset
+    int get_whether_preset() const;
     
     void set_schedule_start_time(int time);
     // return car schedule start time

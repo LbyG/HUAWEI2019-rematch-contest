@@ -56,3 +56,11 @@ void clear_priority_queue(priority_queue<car, vector<car>, cmp_car_dis_to_cross_
         pq.pop();
     }
 }
+
+// check whether all value in vector is 0, if all value is 0 return ture else return false
+bool whether_vector_zero(vector<int> v) {
+    for (vector<int>::iterator iter = v.begin(); iter != v.end(); iter ++)
+        if (*iter > 0)
+            return false;
+    return true;
+}

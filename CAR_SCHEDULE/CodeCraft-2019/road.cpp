@@ -1,5 +1,6 @@
 #include "road.h"
 #include "util.h"
+#include "config.h"
 
 #include <vector>
 #include <iostream>
@@ -80,6 +81,16 @@ void road::clear_wait_car_forefront_of_each_channel() {
     clear_priority_queue(this->wait_car_forefront_of_each_channel);
 }
 
+// clear cars wait to run in road
+void road::clear_cars_wait_to_run_in_road() {
+    this->cars_wait_to_run_in_road = vector<list<car>>(config().priority_N, list<car>());
+}
+
+// add car wait to run in road
+void road::add_car_wait_to_run_in_road(car car_wait_to_run) {
+    this->cars_wait_to_run_in_road[car_wait_to_run.get_priority()].push_back(car_wait_to_run);
+}
+
 // if no car need through cross in this road
 bool road::if_no_car_through_cross() {
     return this->wait_car_forefront_of_each_channel.empty();
@@ -123,6 +134,29 @@ bool road::check_direct_priority(int car_turn_direct) {
     return true;
 }
 
+// Schedule cars which arrive schedule time or wait start
+// cars_wait_to_run_in_road -> cars_in_road
+// return cars_wait_run_to_running_N
+int road::schedule_cars_wait_run(int cars_wait_run_priority, int T) {
+    int cars_wait_run_to_running_N;
+    list<car>::iterator iter = this->cars_wait_to_run_in_road[cars_wait_run_priority].begin();
+    while (iter != this->cars_wait_to_run_in_road[cars_wait_run_priority].end()) {
+        if (T < iter->get_schedule_start_time())
+            break;
+        if (this->whether_be_fill_up())
+            break;
+        if (1 == this->car_into_road(*iter)) {
+            cars_wait_run_to_running_N ++;
+            list<car>::iterator iter_erase = iter;
+            iter ++;
+            this->cars_wait_to_run_in_road[cars_wait_run_priority].erase(iter_erase);
+            continue;
+        }
+        iter ++;
+    }
+    return cars_wait_run_to_running_N;
+}
+
 // init cars' schedule state to wait state which in channel
 // return number of cars in channel
 int road::init_cars_schedule_status_in_channel(int channel_id) {
@@ -140,7 +174,7 @@ int road::init_cars_schedule_status_in_channel(int channel_id) {
 // If car don't be block and can't through cross then car run one time slice and into end state -> car.schedule_status = 0
 // If car blocked by termination state car then car move to the back of the previous car -> car.schedule_status = 0
 // return number of from wait state to termination status
-int road::schedule_cars_running_in_channel(int channel_id, int flag, int &cars_running_n, int &cars_arrive_destination_n, int &all_cars_running_time, int T) {
+int road::schedule_cars_running_in_channel(int channel_id) {
     int cars_running_termination_status_n = 0;
     
     // car arrive destination direct drive to destination
@@ -196,7 +230,7 @@ int road::schedule_cars_running_in_channel(int channel_id, int flag, int &cars_r
     return cars_running_termination_status_n ;
 }
 
-int road::schedule_cars_running_in_road(int &cars_running_n, int &cars_arrive_destination_n, int &all_cars_running_time, int T) {
+int road::schedule_cars_running_in_road() {
     int cars_running_wait_status_n = 0;
     // road.into_channel_id = 0
     this->set_into_channel_id(0);
@@ -207,18 +241,18 @@ int road::schedule_cars_running_in_road(int &cars_running_n, int &cars_arrive_de
     // drive all car in channel id
     for (int channel_id = 0; channel_id < channel; channel_id ++) {
         cars_running_wait_status_n += this->init_cars_schedule_status_in_channel(channel_id);
-        cars_running_wait_status_n -= this->schedule_cars_running_in_channel(channel_id, 1, cars_running_n, cars_arrive_destination_n, all_cars_running_time, T);
+        cars_running_wait_status_n -= this->schedule_cars_running_in_channel(channel_id);
     }
     return cars_running_wait_status_n;
 }
 
 // forefront car because some reason it need remain in cross
-int road::forefront_car_remain_in_cross(int channel_id, int flag, int &cars_running_n, int &cars_arrive_destination_n, int &all_cars_running_time, int T) {
+int road::forefront_car_remain_in_cross(int channel_id) {
     int wait_to_termination_n = 1;
     this->wait_car_forefront_of_each_channel.pop();
     this->cars_in_road[channel_id].front().set_schedule_status(0);
     this->cars_in_road[channel_id].front().set_dis_to_cross(0);
-    wait_to_termination_n += this->schedule_cars_running_in_channel(channel_id, 1, cars_running_n, cars_arrive_destination_n, all_cars_running_time, T);
+    wait_to_termination_n += this->schedule_cars_running_in_channel(channel_id);
     return wait_to_termination_n;
 }
 
@@ -238,15 +272,13 @@ bool road::whether_be_fill_up() {
 // if car speed_in_road <= car.dis_to_cross in previous road, then dis_move_in_road = 0 -> car don't enter this road, car.dis_to_cross = 0 and return -1 
 // else if car into road don't be block or block by a car which is termination status, car enter road, return 1
 // else car can't enter road, need wait previous car to be termination state return 0
-int road::car_into_road(car into_car, int flag) {
+int road::car_into_road(car into_car) {
     int speed_car_in_road = min(this->speed, into_car.get_speed());
     int dis_move_in_road = speed_car_in_road - into_car.get_dis_to_cross();
     if (dis_move_in_road <= 0)
         return -1;
     int car_dis_to_cross = this->length - dis_move_in_road;
     if (this->cars_in_road[this->into_channel_id].empty() || (car_dis_to_cross > this->cars_in_road[this->into_channel_id].back().get_dis_to_cross())) {
-        if (flag == 0)
-            return 1;
         if (into_car.get_next_road_in_path() == -1) {
             cout << "road::car_into_road error!!!!!!!!!!!!!!!!!!!" << endl;
             return 1;
@@ -264,8 +296,6 @@ int road::car_into_road(car into_car, int flag) {
         return 1;
     } else {
         if (this->cars_in_road[this->into_channel_id].back().get_schedule_status() == 0) {
-            if (flag == 0)
-                return 1;
             if (into_car.get_next_road_in_path() == -1) {
                 cout << "road::car_into_road error!!!!!!!!!!!!!!!!!!!" << endl;
                 return 1;

@@ -35,6 +35,8 @@ private:
     // channel_id = [0, channel-1]
     // list<car> = car1->car2->car3->car4, ... the distance from the arrive_cross_id is from near to far
     vector<list<car>> cars_in_road;
+    // cars wait to run in road
+    vector<list<car>> cars_wait_to_run_in_road;
 public:
     // road_info = (id,length,speed,channel,from,to,isDuplex)
     road(string road_info);
@@ -51,6 +53,8 @@ public:
     void init_wait_into_road_direction_count();
     // road.wait_car_forefront_of_each_channel.clear();
     void clear_wait_car_forefront_of_each_channel();
+    // clear cars wait to run in road
+    void clear_cars_wait_to_run_in_road();
     
     // if no car need through cross in this road
     bool if_no_car_through_cross();
@@ -65,7 +69,13 @@ public:
     void sub_wait_into_road_direction_count(int car_direct);
     // check whether car_turn_direct can enter this road
     bool check_direct_priority(int car_turn_direct);
+    // add car wait to run in road
+    void add_car_wait_to_run_in_road(car car_wait_to_run);
     
+    // Schedule cars which arrive schedule time or wait start
+    // cars_wait_to_run_in_road -> cars_in_road
+    // return cars_wait_run_to_running_N
+    int schedule_cars_wait_run(int cars_wait_run_priority, int T);
     // init cars' schedule state to wait state which in channel
     // return number of cars in channel
     int init_cars_schedule_status_in_channel(int channel_id);
@@ -75,10 +85,10 @@ public:
     // If car don't be block and can't through cross then car run one time slice and into end state -> car.schedule_status = 0
     // If car blocked by termination state car then car move to the back of the previous car -> car.schedule_status = 0
     // return number of from wait state to termination status
-    int schedule_cars_running_in_channel(int channel_id, int flag, int &cars_running_n, int &cars_arrive_destination_n, int &all_cars_running_time, int T);
-    int schedule_cars_running_in_road(int &cars_running_n, int &cars_arrive_destination_n, int &all_cars_running_time, int T);
+    int schedule_cars_running_in_channel(int channel_id);
+    int schedule_cars_running_in_road();
     // forefront car because some reason it need remain in cross
-    int forefront_car_remain_in_cross(int channel_id, int flag, int &cars_running_n, int &cars_arrive_destination_n, int &all_cars_running_time, int T);
+    int forefront_car_remain_in_cross(int channel_id);
     
     // check the road all channel whether be fill up
     // be fill up -> true else -> false
@@ -86,7 +96,7 @@ public:
     // if car speed_in_road <= car.dis_to_cross in previous road, then dis_move_in_road = 0 -> car don't enter this road, car.dis_to_cross = 0 and return -1 
     // else if car into road don't be block or block by a car which is termination status, car enter road, return 1
     // else car can't enter road, need wait previous car to be termination state return 0
-    int car_into_road(car into_car, int flag);
+    int car_into_road(car into_car);
     
     // output road status
     void output_status(int T);

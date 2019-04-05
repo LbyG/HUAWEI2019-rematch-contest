@@ -17,20 +17,15 @@ class overall_schedule {
 private:
     map<int, int> arrive_car_id_count;
     int T;
-    int all_cars_running_time;
+    vector<int> arrive_T;
+    vector<int> all_cars_running_time;
     // N = cars_wait_schedule_start_time_n + cars_wait_run_n + cars_running_n + cars_arrive_destination_n
     // number of cars which T < car.schedule_start_time
-    int cars_wait_schedule_start_time_n; 
-    // cars which T < car.schedule_start_time, priority depend on schedule_start_time
-    priority_queue<car, vector<car>, cmp_car_schedule_start_time> cars_wait_schedule_start_time_list; 
-    // the number of cars which T >= car.schedule_start_time but wait to running in road
-    int cars_wait_run_n; 
-    // cars which T >= car.schedule_start_time but wait to running in road, priority depend on id
-    vector<car> cars_wait_run_list;
+    vector<int> cars_wait_schedule_start_time_n;
     // the number of cars which is running in road
-    int cars_running_n; 
+    vector<int> cars_running_n; 
     // the number of cars which is arrive destination
-    int cars_arrive_destination_n;
+    vector<int> cars_arrive_destination_n;
     
     // cars_running_n = cars_wait_state_n + cars_termination_state_n
     // the number of cars wait to through cross or previous car is wait to through cross
@@ -54,6 +49,8 @@ public:
     void load_cars_roads_crosses(string car_path, string road_path, string cross_path);
     // load cars' path from answer_path
     void load_answer(string answer_path);
+    // load preset answer
+    void load_preset_answer(string presetAnswerPath);
     
     // initial all data in T = 0
     void initial_cars_state_in_T0();
@@ -66,7 +63,7 @@ public:
     // Schedule cars which arrive schedule time or wait start
     // cars_wait_schedule_start_time_list -> cars_wait_run_list
     // cars_wait_run_list -> cars_in_road
-    void schedule_cars_wait_run();
+    void schedule_cars_wait_run(int cars_wait_run_priority);
     
     // schedule cars in one time unit
     // if deadblock return false
