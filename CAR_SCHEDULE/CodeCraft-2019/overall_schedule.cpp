@@ -245,7 +245,18 @@ int overall_schedule::schedule_cars() {
     }
 //    this->output_schedule_status();
     this->count_metric_ab();
+    
+    // merge priority == 0 and priority == 1
     this->all_cars_running_time[0] += this->all_cars_running_time[1];
+    this->arrive_T[0] = max(this->arrive_T[0], this->arrive_T[1]);
+    // T for priority cars is from early plan time of priority cars to all priority cars arrive destination
+    int priority_cars_early_plan_time = 1e8;
+    for (map<int, car>::iterator iter = this->cars.begin(); iter != this->cars.end(); iter ++) {
+        if (iter->second.get_priority() == 1)
+            priority_cars_early_plan_time = min(priority_cars_early_plan_time, iter->second.get_plan_time());
+    }
+    this->arrive_T[1] -= priority_cars_early_plan_time;
+    
     for (int i = 0; i < config().priority_N; i ++)
         cout << "priority = " << i << " T = " << this->arrive_T[i] << " all cars running time = " << this->all_cars_running_time[i] << endl;
     cout << "metric_a = " << this-> metric_a << " metric_b = " << this->metric_b << endl;
@@ -302,7 +313,6 @@ void overall_schedule::count_metric_ab() {
             priority_cars_to_map[iter_car.get_to()] ++;
             if (priority_cars_to_map[iter_car.get_to()] == 1)
                 priority_cars_to_count ++;
-        } else {
         }
     }
     cout << cars_N << " " << priority_cars_N << endl;
@@ -322,8 +332,6 @@ void overall_schedule::count_metric_ab() {
     this->metric_b = 0.8 * metric_N + 0.05 * metric_speed + 0.05 * metric_plan_time + 0.05 * metric_from + 0.05 * metric_to;
     //this->metric_a = 1.0 * round(this->metric_a * 1e5) / 1e5;
     //this->metric_b = 1.0 * round(this->metric_b * 1e5) / 1e5;
-    
-    this->arrive_T[1] -= priority_cars_early_plan_time;
 }
 
 // output car schedule status
