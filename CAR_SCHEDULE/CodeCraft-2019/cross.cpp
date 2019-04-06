@@ -126,6 +126,13 @@ void cross::schedule_cars_wait_run(int cars_wait_run_priority, vector<int> &cars
     }
 }
 
+// schedule cars wait run in road
+void cross::schedule_cars_wait_run_in_road(int cars_wait_run_priority, vector<int> &cars_running_n, vector<int> &cars_wait_schedule_start_time_n, road* road_to_run, int T) {
+    int cars_wait_run_to_running_N = road_to_run->schedule_cars_wait_run(cars_wait_run_priority, T);
+    cars_wait_schedule_start_time_n[cars_wait_run_priority] -= cars_wait_run_to_running_N;
+    cars_running_n[cars_wait_run_priority] += cars_wait_run_to_running_N;
+}
+
 // car to next road, maybe return -2, -1, 0, 1
 // if road is be termination status cars fill up return -2
 // if car speed_in_road <= car.dis_to_cross in previous road, then dis_move_in_road = 0 -> car don't enter this road, car.dis_to_cross = 0 and return -1 
@@ -184,7 +191,16 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                 if (next_road_id != -1)
                     this->roads_departure_cross[next_road_id]->sub_wait_into_road_direction_count(car_through_cross.get_priority(), 0);
                 this->update_road_state_in_cross(*iter);
-                this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                
+                //this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                
+                this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, (*iter), T);
+                /*
+                if (next_road_id != -1) {
+                    road* next_road = this->roads_departure_cross[next_road_id];
+                    this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, next_road, T);
+                }
+                */
                 continue;
             } else 
                 next_road_id = car_through_cross.get_next_road_in_path();
@@ -200,7 +216,10 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                     // update direct priority
                     next_road->sub_wait_into_road_direction_count(car_through_cross.get_priority(), car_turn_direct);
                     this->update_road_state_in_cross(*iter);
-                    this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                    
+                    //this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                    this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, (*iter), T);
+                    //this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, next_road, T);
                     continue;
                 } else {
                     // road don't be fill up
@@ -211,7 +230,10 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                         // update direct priority
                         next_road->sub_wait_into_road_direction_count(car_through_cross.get_priority(), car_turn_direct);
                         this->update_road_state_in_cross(*iter);
-                        this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                        
+                        //this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                        this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, (*iter), T);
+                        //this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, next_road, T);
                         continue;
                     } else if (flag == 0) {
                         // car block by car which is wait state
@@ -224,7 +246,10 @@ int cross::schedule_cars_in_cross(vector<int> &cars_running_n, vector<int> &cars
                         // update direct priority
                         next_road->sub_wait_into_road_direction_count(car_through_cross.get_priority(), car_turn_direct);
                         this->update_road_state_in_cross(*iter);
-                        this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                        
+                        //this->schedule_cars_wait_run(1, cars_running_n, cars_wait_schedule_start_time_n, roads_connect_cross, T);
+                        this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, (*iter), T);
+                        //this->schedule_cars_wait_run_in_road(1, cars_running_n, cars_wait_schedule_start_time_n, next_road, T);
                         continue;
                     }
                 }

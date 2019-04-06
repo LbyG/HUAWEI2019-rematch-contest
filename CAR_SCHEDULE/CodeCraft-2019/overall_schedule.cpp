@@ -249,8 +249,8 @@ int overall_schedule::schedule_cars() {
     for (int i = 0; i < config().priority_N; i ++)
         cout << "priority = " << i << " T = " << this->arrive_T[i] << " all cars running time = " << this->all_cars_running_time[i] << endl;
     cout << "metric_a = " << this-> metric_a << " metric_b = " << this->metric_b << endl;
-    int final_arrive_T = this->arrive_T[0] + this->metric_a * this->arrive_T[1];
-    long long final_all_cars_running_time = this->all_cars_running_time[0] + this->metric_b * this->all_cars_running_time[1];
+    int final_arrive_T = round(this->arrive_T[0] + this->metric_a * this->arrive_T[1]);
+    long long final_all_cars_running_time = round(this->all_cars_running_time[0] + this->metric_b * this->all_cars_running_time[1]);
     cout << "final result: " << " T = " << final_arrive_T << " all cars running time = " << final_all_cars_running_time << endl;
     return this->T;
 }
@@ -313,11 +313,11 @@ void overall_schedule::count_metric_ab() {
     long double metric_to = 1.0 * cars_to_count / priority_cars_to_count;
     cout << round(metric_N * 1e5) << endl;
     cout << metric_N << " " << metric_speed << " " << metric_plan_time << " " << metric_from << " " << metric_to << endl;
-    //metric_N = 1.0 * round(metric_N * 1e5) / 1e5;
-    //metric_speed = 1.0 * round(metric_speed * 1e5) / 1e5;
-    //metric_plan_time = 1.0 * round(metric_plan_time * 1e5) / 1e5;
-    //metric_from = 1.0 * round(metric_from * 1e5) / 1e5;
-    //metric_to = 1.0 * round(metric_to * 1e5) / 1e5;
+    metric_N = 1.0 * round(metric_N * 1e5) / 1e5;
+    metric_speed = 1.0 * round(metric_speed * 1e5) / 1e5;
+    metric_plan_time = 1.0 * round(metric_plan_time * 1e5) / 1e5;
+    metric_from = 1.0 * round(metric_from * 1e5) / 1e5;
+    metric_to = 1.0 * round(metric_to * 1e5) / 1e5;
     this->metric_a = 0.05 * metric_N + 0.2375 * metric_speed + 0.2375 * metric_plan_time + 0.2375 * metric_from + 0.2375 * metric_to;
     this->metric_b = 0.8 * metric_N + 0.05 * metric_speed + 0.05 * metric_plan_time + 0.05 * metric_from + 0.05 * metric_to;
     //this->metric_a = 1.0 * round(this->metric_a * 1e5) / 1e5;

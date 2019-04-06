@@ -50,6 +50,9 @@ public:
     // cars_wait_schedule_start_time_list -> cars_wait_run_list
     // cars_wait_run_list -> cars_in_road
     void schedule_cars_wait_run(int cars_wait_run_priority, vector<int> &cars_running_n, vector<int> &cars_wait_schedule_start_time_n, list<road> &roads_connect_cross, int T);
+    // schedule cars wait run in road
+    void schedule_cars_wait_run_in_road(int cars_wait_run_priority, vector<int> &cars_running_n, vector<int> &cars_wait_schedule_start_time_n, road* road_to_run, int T);
+    
     // car to next road, maybe return -2, -1, 0, 1
     // if road is be termination status cars fill up return -2
     // else if car speed_in_road <= car.dis_to_cross in previous road, then dis_move_in_road = 0 -> car don't enter this road, car.dis_to_cross = 0 and return -1 
