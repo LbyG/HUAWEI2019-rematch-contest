@@ -1,3 +1,0 @@
-/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/build/CMakeFiles/rebuild_cache.dir
-/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/build/CMakeFiles/CodeCraft-2019.dir
-/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/CAR_SCHEDULE/build/CMakeFiles/edit_cache.dir
