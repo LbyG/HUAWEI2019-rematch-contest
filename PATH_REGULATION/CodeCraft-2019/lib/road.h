@@ -38,9 +38,10 @@ private:
     // cars wait to run in road
     vector<list<car>> cars_wait_to_run_in_road;
     
-    // access situation of cars running in road
+    // situation of cars running in road
     vector<double> situation_car_running_in_road;
-    int capacity;
+    // deadlock influence to situation of cars running in road
+    vector<double> deadlock_situation_car_running_in_road;
 public:
     // road_info = (id,length,speed,channel,from,to,isDuplex)
     road(string road_info);
@@ -59,6 +60,8 @@ public:
     void init_wait_into_road_direction_count();
     // road.wait_car_forefront_of_each_channel.clear();
     void clear_wait_car_forefront_of_each_channel();
+    // road.cars_in_road.clear()
+    void clear_cars_in_road();
     // clear cars wait to run in road
     void clear_cars_wait_to_run_in_road();
     
@@ -109,11 +112,17 @@ public:
     
     //========================================================================
     
+    // add deadlock_situation_car_running_in_road to prevent deadlock
+    void add_deadlock_situation_car_running_in_road(int x, int y, long double val);
+    
+    // initial situation_car_running_in_road;
+    void init_situation_car_running_in_road();
+    
     // check whether cars can run into road between x to y
-    double check_capacity(int x, int y);
+    double check_capacity(int x, int y, int car_speed);
     
     // modify the situation of cars running in road
-    void car_running_count(int x, int y);
+    void car_running_count(int x, int y, long double priority_weight);
 };
 
 bool operator<(const road &a, const road &b);

@@ -17,6 +17,7 @@ class overall_schedule {
 private:
     long double metric_a;
     long double metric_b;
+    vector<long double> priority_weight;
     // arrive car id count
     map<int, int> arrive_car_id_count;
     // timestamp
@@ -85,6 +86,11 @@ public:
     void output_schedule_status();
     
     //================================================================
+    // count preset car to situation_car_running_in_road
+    void preset_car_to_situation(car preset_car);
+    
+    // some way to prevent deadlock
+    void prevent_deadlock(int T);
     
     // regulate all cars start time and path
     void car_path_regulation();

@@ -46,6 +46,12 @@ cmp_car_schedule_start_time.h
 car.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/car.h
 
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/config.cpp
+config.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/config.h
+algorithm
+-
+
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/cross.cpp
 cross.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/cross.h
@@ -81,6 +87,8 @@ car.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/lib/car.h
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/lib/config.h
+vector
+-
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/lib/cross.h
 road.h

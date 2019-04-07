@@ -258,6 +258,33 @@ cmp_car_schedule_start_time.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.s
 .PHONY : cmp_car_schedule_start_time.cpp.s
 
+config.o: config.cpp.o
+
+.PHONY : config.o
+
+# target to build an object file
+config.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/config.cpp.o
+.PHONY : config.cpp.o
+
+config.i: config.cpp.i
+
+.PHONY : config.i
+
+# target to preprocess a source file
+config.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/config.cpp.i
+.PHONY : config.cpp.i
+
+config.s: config.cpp.s
+
+.PHONY : config.s
+
+# target to generate assembly for a file
+config.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/config.cpp.s
+.PHONY : config.cpp.s
+
 cross.o: cross.cpp.o
 
 .PHONY : cross.o
@@ -390,6 +417,9 @@ help:
 	@echo "... cmp_car_schedule_start_time.o"
 	@echo "... cmp_car_schedule_start_time.i"
 	@echo "... cmp_car_schedule_start_time.s"
+	@echo "... config.o"
+	@echo "... config.i"
+	@echo "... config.s"
 	@echo "... cross.o"
 	@echo "... cross.i"
 	@echo "... cross.s"

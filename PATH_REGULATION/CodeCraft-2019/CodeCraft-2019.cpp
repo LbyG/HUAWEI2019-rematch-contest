@@ -31,14 +31,17 @@ int main(int argc, char *argv[])
     OS.load_cars_roads_crosses(carPath, roadPath, crossPath);
 	// TODO:process
     OS.load_preset_answer(presetAnswerPath);
-    OS.load_answer(answerPath);
     double start,end,cost;
     start=clock();
-    OS.car_path_regulation();
+    while (true) {
+        OS.car_path_regulation();
+        int T = OS.schedule_cars();
+        std::cout << "T = " << T << std::endl;
+        if (T != -1)
+            break;
+    }
 	// TODO:write output file
     OS.save_answer(answerPath);
-    int T = OS.schedule_cars();
-    std::cout << "T = " << T << std::endl;
     end=clock();
     cost=end-start;
     cout << double(cost)/CLOCKS_PER_SEC << endl;

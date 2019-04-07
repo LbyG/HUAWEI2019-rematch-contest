@@ -6,12 +6,9 @@
 #include <sstream>
 
 using namespace std;
-/*
+
 car::car() {
-    // TODO
-    this->id = 0;
 }
-*/
 // car_info = (id,from,to,speed,planTime)
 car::car(string car_info) {
     // car_info = (id,from,to,speed,planTime)

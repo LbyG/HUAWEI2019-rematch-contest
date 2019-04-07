@@ -33,14 +33,11 @@ road::road(string road_info) {
     this->clear_wait_car_forefront_of_each_channel();
     
     // init cars_in_road
-    this->cars_in_road.clear();
-    for (int i = 0; i < channel; i ++) {
-        this->cars_in_road.push_back(list<car>());
-    }
+    this->clear_cars_in_road();
     
-    this->situation_car_running_in_road = vector<double>(100000, 0);
+    this->deadlock_situation_car_running_in_road = vector<double>(config().max_T, 0);
     //road["channel"] * max(1, road["length"] - road["speed"]) * CAPACITY_WEIGHT // 1
-    this->capacity = this->channel * max(1, this->length - this->speed)/* this->length*/ * 10 / 100;
+    //this->capacity = 1.0 * this->channel * max(1, this->length - this->speed)/* this->length*/ * 20 / 100;
 }
 
 // return road id
@@ -90,6 +87,11 @@ void road::init_wait_into_road_direction_count() {
 // road.wait_car_forefront_of_each_channel.clear();
 void road::clear_wait_car_forefront_of_each_channel() {
     clear_priority_queue(this->wait_car_forefront_of_each_channel);
+}
+
+// road.cars_in_road.clear()
+void road::clear_cars_in_road() {
+    this->cars_in_road = vector<list<car>>(this->channel, list<car>());
 }
 
 // clear cars wait to run in road
@@ -356,21 +358,36 @@ void road::output_status(int T) {
 
 //===============================================
 
-double road::check_capacity(int x, int y) {
+// add deadlock_situation_car_running_in_road to prevent deadlock
+void road::add_deadlock_situation_car_running_in_road(int x, int y, long double val) {
+    for (int i = x; i <= y; i ++) {
+        this->deadlock_situation_car_running_in_road[i] += val;
+    }
+}
+
+// initial situation_car_running_in_road;
+void road::init_situation_car_running_in_road() {
+    this->situation_car_running_in_road = vector<double>(config().max_T, 0);
+}
+    
+// check whether cars can run into road between x to y
+double road::check_capacity(int x, int y, int car_speed) {
     int sum_car_running = 0;
     int sum_capacity = 0;
+    double car_in_road_capacity = config().count_capacity(this->channel, this->length, min(this->speed, car_speed));
     for (int i = x; i <= y; i ++) {
-        if (this->situation_car_running_in_road[i] - 0.001 > this->capacity)
+        if (this->deadlock_situation_car_running_in_road[i] + this->situation_car_running_in_road[i] - 0.001 > car_in_road_capacity)
             return 2.0;
-        sum_car_running += max(0.0, this->situation_car_running_in_road[i]);// - (this->length - this->speed));
-        sum_capacity += this->capacity;
+        sum_car_running += max(0.0, this->deadlock_situation_car_running_in_road[i] + this->situation_car_running_in_road[i]);
+        sum_capacity += car_in_road_capacity;
     }
     return 1.0 * sum_car_running / sum_capacity;
 }
 
-void road::car_running_count(int x, int y) {
+// modify the situation of cars running in road
+void road::car_running_count(int x, int y, long double priority_weight) {
     for (int i = x; i <= y; i ++) {
-        this->situation_car_running_in_road[i] ++;
+        this->situation_car_running_in_road[i] += priority_weight;
     }
 }
 

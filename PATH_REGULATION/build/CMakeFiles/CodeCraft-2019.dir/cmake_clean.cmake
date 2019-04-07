@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/cmp_car_id.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o"
+  "CMakeFiles/CodeCraft-2019.dir/config.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/cross.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/road.cpp.o"

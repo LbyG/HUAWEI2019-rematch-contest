@@ -36,7 +36,7 @@ private:
     // channel id which car running in
     int channel_id;
 public:
-    //car();
+    car();
     // car_info = (id,from,to,speed,planTime)
     car(string car_info); 
     // schedule_info = [id, schedule_start_time, schedule_path1, schedule_path2, schedule_path3, schedule_path4, ...]

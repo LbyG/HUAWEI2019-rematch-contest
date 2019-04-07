@@ -177,9 +177,33 @@ CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o.provides: CMakeF
 CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o.provides.build: CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o
 
 
+CMakeFiles/CodeCraft-2019.dir/config.cpp.o: CMakeFiles/CodeCraft-2019.dir/flags.make
+CMakeFiles/CodeCraft-2019.dir/config.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/config.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CodeCraft-2019.dir/config.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeCraft-2019.dir/config.cpp.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/config.cpp
+
+CMakeFiles/CodeCraft-2019.dir/config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodeCraft-2019.dir/config.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/config.cpp > CMakeFiles/CodeCraft-2019.dir/config.cpp.i
+
+CMakeFiles/CodeCraft-2019.dir/config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodeCraft-2019.dir/config.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/config.cpp -o CMakeFiles/CodeCraft-2019.dir/config.cpp.s
+
+CMakeFiles/CodeCraft-2019.dir/config.cpp.o.requires:
+
+.PHONY : CMakeFiles/CodeCraft-2019.dir/config.cpp.o.requires
+
+CMakeFiles/CodeCraft-2019.dir/config.cpp.o.provides: CMakeFiles/CodeCraft-2019.dir/config.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/config.cpp.o.provides.build
+.PHONY : CMakeFiles/CodeCraft-2019.dir/config.cpp.o.provides
+
+CMakeFiles/CodeCraft-2019.dir/config.cpp.o.provides.build: CMakeFiles/CodeCraft-2019.dir/config.cpp.o
+
+
 CMakeFiles/CodeCraft-2019.dir/cross.cpp.o: CMakeFiles/CodeCraft-2019.dir/flags.make
 CMakeFiles/CodeCraft-2019.dir/cross.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/cross.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CodeCraft-2019.dir/cross.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CodeCraft-2019.dir/cross.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeCraft-2019.dir/cross.cpp.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/cross.cpp
 
 CMakeFiles/CodeCraft-2019.dir/cross.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/CodeCraft-2019.dir/cross.cpp.o.provides.build: CMakeFiles/CodeCraft-2
 
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: CMakeFiles/CodeCraft-2019.dir/flags.make
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/overall_schedule.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/overall_schedule.cpp
 
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/CodeCraft-2019.dir/road.cpp.o: CMakeFiles/CodeCraft-2019.dir/flags.make
 CMakeFiles/CodeCraft-2019.dir/road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/road.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CodeCraft-2019.dir/road.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CodeCraft-2019.dir/road.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeCraft-2019.dir/road.cpp.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/road.cpp
 
 CMakeFiles/CodeCraft-2019.dir/road.cpp.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/CodeCraft-2019.dir/road.cpp.o.provides.build: CMakeFiles/CodeCraft-20
 
 CMakeFiles/CodeCraft-2019.dir/util.cpp.o: CMakeFiles/CodeCraft-2019.dir/flags.make
 CMakeFiles/CodeCraft-2019.dir/util.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/CodeCraft-2019.dir/util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/CodeCraft-2019.dir/util.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeCraft-2019.dir/util.cpp.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/CodeCraft-2019/util.cpp
 
 CMakeFiles/CodeCraft-2019.dir/util.cpp.i: cmake_force
@@ -280,6 +304,7 @@ CodeCraft__2019_OBJECTS = \
 "CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o" \
 "CMakeFiles/CodeCraft-2019.dir/cmp_car_id.cpp.o" \
 "CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o" \
+"CMakeFiles/CodeCraft-2019.dir/config.cpp.o" \
 "CMakeFiles/CodeCraft-2019.dir/cross.cpp.o" \
 "CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o" \
 "CMakeFiles/CodeCraft-2019.dir/road.cpp.o" \
@@ -293,13 +318,14 @@ CodeCraft__2019_EXTERNAL_OBJECTS =
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/cmp_car_id.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/config.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/cross.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/road.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/util.cpp.o
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/build.make
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019: CMakeFiles/CodeCraft-2019.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CodeCraft-2019.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -312,6 +338,7 @@ CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/car.cpp.o.
 CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o.requires
 CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/cmp_car_id.cpp.o.requires
 CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/cmp_car_schedule_start_time.cpp.o.requires
+CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/config.cpp.o.requires
 CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/cross.cpp.o.requires
 CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o.requires
 CMakeFiles/CodeCraft-2019.dir/requires: CMakeFiles/CodeCraft-2019.dir/road.cpp.o.requires
