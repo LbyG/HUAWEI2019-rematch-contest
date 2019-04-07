@@ -15,6 +15,7 @@ using namespace std;
 
 class overall_schedule {
 private:
+    int deadlock_step = 0;
     long double metric_a;
     long double metric_b;
     vector<long double> priority_weight;
@@ -92,8 +93,10 @@ public:
     // some way to prevent deadlock
     void prevent_deadlock(int T);
     
+    // reluate car start time and path
+    int car_path_regulation(car car_iter, int start_time);
     // regulate all cars start time and path
-    void car_path_regulation();
+    void cars_path_regulation();
     
     // write answer to answer file
     void save_answer(string answer_path);
