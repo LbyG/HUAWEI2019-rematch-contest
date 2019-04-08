@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
     overall_schedule OS;
     OS.load_cars_roads_crosses(carPath, roadPath, crossPath);
 	// TODO:process
-    OS.load_preset_answer(presetAnswerPath);
     OS.load_answer(answerPath);
+    OS.load_preset_answer(presetAnswerPath);
     double start,end,cost;
     start=clock();
     int T = OS.schedule_cars();
