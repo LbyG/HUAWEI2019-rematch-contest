@@ -37,6 +37,10 @@ private:
     int dis_to_cross;
     // channel id which car running in
     int channel_id;
+    
+    // ==============================================================
+    // path regulation
+    
 public:
     car();
     // car_info = (id,from,to,speed,planTime)
@@ -83,6 +87,9 @@ public:
     void set_channel_id(int channel_id);
     // return channel id which car running in
     int get_channel_id() const;
+    
+    // ==============================================================
+    // path regulation
     
     string to_string();
 };

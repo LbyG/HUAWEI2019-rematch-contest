@@ -3,10 +3,12 @@
 
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/CodeCraft-2019.cpp
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car.h
+CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car_influence_to_road.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_dis_to_cross_and_channel_id.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_id.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_schedule_start_time.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cross.h
+CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/influence_to_road.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/overall_schedule.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
 CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/util.h
@@ -17,6 +19,13 @@ CMakeFiles/CodeCraft-2019.dir/car.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first
 CMakeFiles/CodeCraft-2019.dir/car.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_id.h
 CMakeFiles/CodeCraft-2019.dir/car.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_schedule_start_time.h
 CMakeFiles/CodeCraft-2019.dir/car.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/util.h
+
+CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/car_influence_to_road.cpp
+CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car.h
+CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car_influence_to_road.h
+CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_dis_to_cross_and_channel_id.h
+CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/influence_to_road.h
+CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
 
 CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/cmp_car_dis_to_cross_and_channel_id.cpp
 CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car.h
@@ -42,12 +51,20 @@ CMakeFiles/CodeCraft-2019.dir/cross.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_fir
 CMakeFiles/CodeCraft-2019.dir/cross.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
 CMakeFiles/CodeCraft-2019.dir/cross.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/util.h
 
+CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/influence_to_road.cpp
+CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car.h
+CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_dis_to_cross_and_channel_id.h
+CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/influence_to_road.h
+CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
+
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car.h
+CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car_influence_to_road.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_dis_to_cross_and_channel_id.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_id.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_schedule_start_time.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/config.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cross.h
+CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/influence_to_road.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/overall_schedule.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
 CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/util.h

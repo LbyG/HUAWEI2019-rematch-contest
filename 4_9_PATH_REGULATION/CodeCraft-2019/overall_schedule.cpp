@@ -378,7 +378,7 @@ void overall_schedule::preset_car_to_situation(car preset_car) {
         int speed = min(preset_car.get_speed(), next_road->get_speed());
         int length = next_road->get_length();
         int through_time = (length + speed - 1) / speed;
-        next_road->car_running_count(schedule_start_time, schedule_start_time + through_time - 1, preset_car.get_speed());
+        next_road->car_running_count(schedule_start_time, schedule_start_time + through_time - 1, this->priority_weight[preset_car.get_priority()]);
         schedule_start_time += through_time;
         cross_id = next_road->get_to();
         preset_car.arrive_next_road_path();
@@ -526,7 +526,7 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
             cross_id = updata_from[cross_id];
             map<int, road*> roads_departure_cross = this->crosses[cross_id].get_road_departure_cross();
             int now_cross_arrive_time = cross_arrive_time[cross_id];
-            roads_departure_cross[road_id]->car_running_count(now_cross_arrive_time, next_cross_arrive_time - 1, car_iter.get_speed());
+            roads_departure_cross[road_id]->car_running_count(now_cross_arrive_time, next_cross_arrive_time - 1, this->priority_weight[car_iter.get_priority()]);
         }
         vector<int> schedule_info;
         schedule_info.push_back(car_iter.get_id());

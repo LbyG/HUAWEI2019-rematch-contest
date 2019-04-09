@@ -177,6 +177,33 @@ car.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car.cpp.s
 .PHONY : car.cpp.s
 
+car_influence_to_road.o: car_influence_to_road.cpp.o
+
+.PHONY : car_influence_to_road.o
+
+# target to build an object file
+car_influence_to_road.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o
+.PHONY : car_influence_to_road.cpp.o
+
+car_influence_to_road.i: car_influence_to_road.cpp.i
+
+.PHONY : car_influence_to_road.i
+
+# target to preprocess a source file
+car_influence_to_road.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.i
+.PHONY : car_influence_to_road.cpp.i
+
+car_influence_to_road.s: car_influence_to_road.cpp.s
+
+.PHONY : car_influence_to_road.s
+
+# target to generate assembly for a file
+car_influence_to_road.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.s
+.PHONY : car_influence_to_road.cpp.s
+
 cmp_car_dis_to_cross_and_channel_id.o: cmp_car_dis_to_cross_and_channel_id.cpp.o
 
 .PHONY : cmp_car_dis_to_cross_and_channel_id.o
@@ -312,6 +339,33 @@ cross.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/cross.cpp.s
 .PHONY : cross.cpp.s
 
+influence_to_road.o: influence_to_road.cpp.o
+
+.PHONY : influence_to_road.o
+
+# target to build an object file
+influence_to_road.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.o
+.PHONY : influence_to_road.cpp.o
+
+influence_to_road.i: influence_to_road.cpp.i
+
+.PHONY : influence_to_road.i
+
+# target to preprocess a source file
+influence_to_road.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.i
+.PHONY : influence_to_road.cpp.i
+
+influence_to_road.s: influence_to_road.cpp.s
+
+.PHONY : influence_to_road.s
+
+# target to generate assembly for a file
+influence_to_road.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/influence_to_road.cpp.s
+.PHONY : influence_to_road.cpp.s
+
 overall_schedule.o: overall_schedule.cpp.o
 
 .PHONY : overall_schedule.o
@@ -408,6 +462,9 @@ help:
 	@echo "... car.o"
 	@echo "... car.i"
 	@echo "... car.s"
+	@echo "... car_influence_to_road.o"
+	@echo "... car_influence_to_road.i"
+	@echo "... car_influence_to_road.s"
 	@echo "... cmp_car_dis_to_cross_and_channel_id.o"
 	@echo "... cmp_car_dis_to_cross_and_channel_id.i"
 	@echo "... cmp_car_dis_to_cross_and_channel_id.s"
@@ -423,6 +480,9 @@ help:
 	@echo "... cross.o"
 	@echo "... cross.i"
 	@echo "... cross.s"
+	@echo "... influence_to_road.o"
+	@echo "... influence_to_road.i"
+	@echo "... influence_to_road.s"
 	@echo "... overall_schedule.o"
 	@echo "... overall_schedule.i"
 	@echo "... overall_schedule.s"

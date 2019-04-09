@@ -28,6 +28,14 @@ iostream
 sstream
 -
 
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/car_influence_to_road.cpp
+road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/road.h
+influence_to_road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/influence_to_road.h
+car_influence_to_road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/car_influence_to_road.h
+
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/cmp_car_dis_to_cross_and_channel_id.cpp
 cmp_car_dis_to_cross_and_channel_id.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/cmp_car_dis_to_cross_and_channel_id.h
@@ -66,6 +74,12 @@ iostream
 algorithm
 -
 
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/influence_to_road.cpp
+road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/road.h
+influence_to_road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/influence_to_road.h
+
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car.h
 string
 -
@@ -73,6 +87,12 @@ list
 -
 vector
 -
+
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car_influence_to_road.h
+road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
+influence_to_road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/influence_to_road.h
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_dis_to_cross_and_channel_id.h
 car.h
@@ -98,6 +118,10 @@ map
 vector
 -
 
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/influence_to_road.h
+road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
+
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/overall_schedule.h
 queue
 -
@@ -115,6 +139,8 @@ cmp_car_schedule_start_time.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_schedule_start_time.h
 cmp_car_id.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/cmp_car_id.h
+car_influence_to_road.h
+/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/car_influence_to_road.h
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_9_PATH_REGULATION/CodeCraft-2019/lib/road.h
 car.h

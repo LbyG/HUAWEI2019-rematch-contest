@@ -10,6 +10,7 @@
 #include "cross.h"
 #include "cmp_car_schedule_start_time.h"
 #include "cmp_car_id.h"
+#include "car_influence_to_road.h"
 
 using namespace std;
 
@@ -48,6 +49,9 @@ private:
     vector<car> cars_arrive_schedule_start_time;
     vector<car> cars_start_run;
     vector<car> cars_wait_run;
+    //record car influence to road
+    map<int, car_influence_to_road> cars_influence_to_road;
+    
     // roads[road.id] = road
     map<int, road> roads; 
     // crosses[cross.id] = cross
