@@ -391,13 +391,58 @@ void overall_schedule::prevent_deadlock(int T) {
             car deadlock_car = iter->get_car_priority_through_cross();
             this->deadlock_step = (this->deadlock_step + 1) % 10;
             if (deadlock_car.get_whether_preset() == 0) {
-                if (deadlock_car.get_priority() == 0)
-                    //this->cars[deadlock_car.get_id()].set_schedule_start_time(deadlock_car.get_schedule_start_time() + 1);
-                    this->car_path_regulation(deadlock_car, deadlock_car.get_schedule_start_time() + 1);
+                if (deadlock_car.get_priority() == 0 && this->deadlock_step < 5)
+                    this->cars[deadlock_car.get_id()].set_schedule_start_time(deadlock_car.get_schedule_start_time() + this->deadlock_step);
+                    //this->car_path_regulation(deadlock_car, deadlock_car.get_schedule_start_time() + 1);
                 else if (this->deadlock_step == 0)
                     this->cars[deadlock_car.get_id()].set_schedule_start_time(deadlock_car.get_schedule_start_time() + 1);
             }
             //this->cars[deadlock_car.get_id()].set_schedule_start_time(deadlock_car.get_schedule_start_time() + this->deadlock_step);
+        }
+    }
+}
+
+// estimate time car go to destination
+int overall_schedule::estimate_spend_time(car estimate_car) {
+    const int MAX_VAL = 1e8;
+    map<int, int> cross_dis;
+    map<int, int> cross_flag;
+    typedef pair<int, int> QueueItem;
+    priority_queue <QueueItem, std::vector<QueueItem>, std::greater<QueueItem> > cross_arrive_time_queue;
+    for (map<int, cross>::iterator iter = this->crosses.begin(); iter != this->crosses.end(); iter ++) {
+        int cross_id = iter->second.get_id();
+        cross_dis[cross_id] = MAX_VAL;
+        cross_flag[cross_id] = 0;
+    }
+    cross_dis[estimate_car.get_from()] = 0;
+    cross_arrive_time_queue.push(pair<int, int>(cross_dis[estimate_car.get_from()], estimate_car.get_from()));
+    while (true) {
+        int update_cross_id = -1;
+        int update_dis = MAX_VAL;
+        while (!cross_arrive_time_queue.empty()) {
+            if (cross_flag[cross_arrive_time_queue.top().second] == 0) {
+                update_dis = cross_arrive_time_queue.top().first;
+                update_cross_id = cross_arrive_time_queue.top().second;
+                cross_arrive_time_queue.pop();
+                break;
+            }
+            cross_arrive_time_queue.pop();
+        }
+        if (update_cross_id == -1)
+            break;
+        if (update_cross_id == estimate_car.get_to())
+            return update_dis;
+        cross_flag[update_cross_id] = 1;
+        map<int, road*> road_departure_cross = this->crosses[update_cross_id].get_road_departure_cross();
+        for (map<int, road*>::iterator road_iter = road_departure_cross.begin(); road_iter != road_departure_cross.end(); road_iter ++) {
+            int to_cross_id = road_iter->second->get_to();
+            int speed = min(road_iter->second->get_speed(), estimate_car.get_speed());
+            int length = road_iter->second->get_length();
+            int through_time = (length + speed - 1) / speed;
+            if (cross_dis[to_cross_id] > update_dis + through_time) {
+                cross_dis[to_cross_id] = update_dis + through_time;
+                cross_arrive_time_queue.push(pair<int, int>(cross_dis[to_cross_id], to_cross_id));
+            }
         }
     }
 }
@@ -423,36 +468,40 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
             int updata_cross_id = -1;
             int updata_cross_time = 1e6;
             while (!cross_arrive_time_queue.empty()) {
-        if (!updata_flag[cross_arrive_time_queue.top().second]) {
-            updata_cross_time = cross_arrive_time_queue.top().first;
-            updata_cross_id = cross_arrive_time_queue.top().second;
-            cross_arrive_time_queue.pop();
-            break;
-        }
-        cross_arrive_time_queue.pop();
+                if (!updata_flag[cross_arrive_time_queue.top().second]) {
+                    updata_cross_time = cross_arrive_time_queue.top().first;
+                    updata_cross_id = cross_arrive_time_queue.top().second;
+                    cross_arrive_time_queue.pop();
+                    break;
+                }
+                cross_arrive_time_queue.pop();
             }
             if (updata_cross_id == -1)
-        break;
+                break;
             updata_flag[updata_cross_id] = true;
             map<int, road*> roads_departure_cross = this->crosses[updata_cross_id].get_road_departure_cross();
             for (map<int, road*>::iterator road_iter = roads_departure_cross.begin(); road_iter != roads_departure_cross.end(); road_iter ++) {
-        int speed = min(car_iter.get_speed(), (road_iter->second)->get_speed());
-        int length = (road_iter->second)->get_length();
-        int through_time = (length + speed - 1) / speed;
-        int next_cross_id = (road_iter->second)->get_to();
-        double congestion = road_iter->second->check_capacity(updata_cross_time, updata_cross_time + through_time - 1, car_iter.get_speed());
-        if (congestion < 1) {
-            if (cross_arrive_time[next_cross_id] > updata_cross_time + through_time * (1 + congestion)) {
-                cross_arrive_time[next_cross_id] = updata_cross_time + through_time * (1 + congestion);
-                updata_from[next_cross_id] = updata_cross_id;
-                updata_road_id[next_cross_id] = (road_iter->second)->get_id();
-                cross_arrive_time_queue.push(pair<int, int>(cross_arrive_time[next_cross_id], next_cross_id));
+                int speed = min(car_iter.get_speed(), (road_iter->second)->get_speed());
+                int length = (road_iter->second)->get_length();
+                int through_time = (length + speed - 1) / speed;
+                int next_cross_id = (road_iter->second)->get_to();
+                double congestion = road_iter->second->check_capacity(updata_cross_time, updata_cross_time + through_time - 1, car_iter.get_speed());
+                if (congestion < 1) {
+                    if (cross_arrive_time[next_cross_id] > updata_cross_time + through_time * (1 + congestion)) {
+                        cross_arrive_time[next_cross_id] = updata_cross_time + through_time * (1 + congestion);
+                        updata_from[next_cross_id] = updata_cross_id;
+                        updata_road_id[next_cross_id] = (road_iter->second)->get_id();
+                        cross_arrive_time_queue.push(pair<int, int>(cross_arrive_time[next_cross_id], next_cross_id));
+                    }
+                }
             }
         }
-            }
-        }
-        if (cross_arrive_time[car_iter.get_to()] == 1e6) {
-            start_time += 1;
+        //cout << cross_arrive_time[car_iter.get_from()] - start_time << " " << car_iter.get_schedule_start_time() << endl;
+        if (cross_arrive_time[car_iter.get_to()] == 1e6) { //|| (cross_arrive_time[car_iter.get_from()] - start_time) > car_iter.get_schedule_start_time() * -1.5) {
+            if (start_time < 10000)
+                start_time += 1;
+            else
+                start_time += 10;
             continue;
             //cout << "overall_schedule::car_path_regulation error!!!!!!!!!!!!!!!!!" << endl;
         }
@@ -491,7 +540,7 @@ void overall_schedule::cars_path_regulation() {
     for (map<int, car>::iterator iter = this->cars.begin(); iter != this->cars.end(); iter ++) {
         if (iter->second.get_whether_preset() == 0) {
             car new_car(iter->second);
-            new_car.set_schedule_start_time(new_car.get_speed());
+            new_car.set_schedule_start_time(-1 * this->estimate_spend_time(new_car));
             //new_car.set_schedule_start_time(new_car.get_plan_time());
             this->cars_to_regulate_path[new_car.get_priority()].push_back(new_car);
         } else {

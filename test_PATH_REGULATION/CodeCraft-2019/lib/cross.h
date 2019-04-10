@@ -38,6 +38,8 @@ public:
     void add_road_departure_cross(int road_id, road* road_pointer);
     // get road departure cross;
     map<int, road*> get_road_departure_cross();
+    // get roads into cross
+    vector<road*> get_roads_into_cross();
     // add car wait to run in road
     void add_car_wait_to_run_in_road(car car_wait_to_run);
     

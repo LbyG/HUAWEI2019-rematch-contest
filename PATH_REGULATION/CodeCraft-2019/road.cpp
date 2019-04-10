@@ -375,7 +375,7 @@ void road::init_situation_car_running_in_road() {
 double road::check_capacity(int x, int y, int car_speed) {
     int sum_car_running = 0;
     int sum_capacity = 0;
-    double car_in_road_capacity = config().count_capacity(this->channel, this->length, min(this->speed, car_speed));
+    double car_in_road_capacity = config().count_capacity(this->channel, this->length, this->speed);//min(this->speed, car_speed));
     for (int i = x; i <= y; i ++) {
         if (this->deadlock_situation_car_running_in_road[i] + this->situation_car_running_in_road[i] - 0.001 > car_in_road_capacity)
             return 2.0;
@@ -388,7 +388,7 @@ double road::check_capacity(int x, int y, int car_speed) {
 // modify the situation of cars running in road
 void road::car_running_count(int x, int y, double priority_weight) {
     for (int i = x; i <= y; i ++) {
-        this->situation_car_running_in_road[i] += min(priority_weight, 1.0 * this->speed);
+        this->situation_car_running_in_road[i] += min(priority_weight, 1.0);// * this->speed);
     }
 }
 

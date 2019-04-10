@@ -16,5 +16,5 @@ config::config() {
 }
 
 double config::count_capacity(int channel, int length, int speed) {
-    return 4.0 * this->channel_weight[channel] * length;//max(1, length - speed);
+    return 0.8 * this->channel_weight[channel] * max(1, length - speed);
 }

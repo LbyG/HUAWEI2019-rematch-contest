@@ -44,6 +44,8 @@ private:
     // cars[car.id] = car
     map<int, car> cars; 
     vector<vector<car>> cars_to_regulate_path;
+    map<int, map<int, vector<car>>> cars_in_from_to;
+    vector<car> cars_to_level_schedule;
     // roads[road.id] = road
     map<int, road> roads; 
     // crosses[cross.id] = cross
@@ -87,14 +89,15 @@ public:
     void output_schedule_status();
     
     //================================================================
-    // count preset car to situation_car_running_in_road
-    void preset_car_to_situation(car preset_car);
+    // return cross_level for cross_id, more close to cross_id have more lower level, cross_level[cross_id] = level
+    map<int, int> get_cross_level(int init_cross_id);
     
-    // some way to prevent deadlock
-    void prevent_deadlock(int T);
+    // count how many cars can running in this cross_level
+    int get_car_level_schedule_count(map<int, int> cross_level, bool get_cars_to_level_schedule = false);
     
-    // reluate car start time and path
-    int car_path_regulation(car car_iter, int start_time);
+    // schedule car path in cross level, car only can from high level to low level or from low level to high level
+    int car_level_schedule_path(map<int, int> cross_level);
+    
     // regulate all cars start time and path
     void cars_path_regulation();
     

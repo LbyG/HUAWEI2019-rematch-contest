@@ -23,6 +23,8 @@ private:
     int priority;
     // car whether preset
     int whether_preset;
+    // car whether finish find path
+    bool whether_finish_find_path;
     
     // car schedule start time
     int schedule_start_time;
@@ -55,6 +57,11 @@ public:
     int get_priority() const; 
     // return car whether preset
     int get_whether_preset() const;
+    
+    // set whether_finish_find_path
+    void set_whether_finish_find_path(bool whether_finish_find_path);
+    // return whether_finish_find_path
+    bool get_whether_finish_find_path() const;
     
     void set_schedule_start_time(int time);
     // return car schedule start time

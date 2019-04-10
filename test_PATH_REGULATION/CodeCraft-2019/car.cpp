@@ -23,6 +23,7 @@ car::car(string car_info) {
     this->plan_time = info_val[4];
     this->priority = info_val[5];
     this->whether_preset = info_val[6];
+    this->whether_finish_find_path = false;
     if (this->from == this->to)
         cout << "car::car error !!!!!!!!!!!!!" << this->id << endl;
     
@@ -78,6 +79,16 @@ int car::get_priority() const {
 // return car whether preset
 int car::get_whether_preset() const {
     return this->whether_preset;
+}
+
+// set whether_finish_find_path
+void car::set_whether_finish_find_path(bool whether_finish_find_path) {
+    this->whether_finish_find_path = whether_finish_find_path;
+}
+
+// return whether_finish_find_path
+bool car::get_whether_finish_find_path() const {
+    return this->whether_finish_find_path;
 }
 
 void car::set_schedule_start_time(int time) {

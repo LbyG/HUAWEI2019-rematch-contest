@@ -34,12 +34,14 @@ int main(int argc, char *argv[])
     double start,end,cost;
     start=clock();
     OS.cars_path_regulation();
+    /*
     while (true) {
         int T = OS.schedule_cars();
         std::cout << "T = " << T << std::endl;
         if (T != -1)
             break;
     }
+    */
 	// TODO:write output file
     OS.save_answer(answerPath);
     end=clock();

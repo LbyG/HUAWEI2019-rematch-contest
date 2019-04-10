@@ -66,6 +66,11 @@ void cross::add_road_departure_cross(int road_id, road* road_pointer) {
     this->roads_departure_cross[road_id] = road_pointer;
 }
 
+// get roads into cross
+vector<road*> cross::get_roads_into_cross() {
+    return this->roads_into_cross;
+}
+
 // get road departure cross;
 map<int, road*> cross::get_road_departure_cross() {
     return this->roads_departure_cross;

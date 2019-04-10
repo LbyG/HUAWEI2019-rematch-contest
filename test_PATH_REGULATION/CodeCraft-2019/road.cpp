@@ -8,6 +8,8 @@
 
 using namespace std;
 
+road::road() {};
+
 road::road(string road_info) {
     // road_info = (id,length,speed,channel,from,to,isDuplex)
     vector<int> info_val = parse_string_to_int_vector(road_info);
@@ -52,7 +54,9 @@ int road::get_length() const {
 int road::get_speed() const {
     return this->speed;
 }
-
+int road::get_channel() const {
+    return this->channel;
+}
 // return road from cross id
 int road::get_from() const {
     return this->from;

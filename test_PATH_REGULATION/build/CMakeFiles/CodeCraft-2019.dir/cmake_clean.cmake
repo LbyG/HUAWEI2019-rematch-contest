@@ -9,8 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CodeCraft-2019.dir/overall_schedule.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/road.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/util.cpp.o"
-  "/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019.pdb"
-  "/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/PATH_REGULATION/bin/CodeCraft-2019"
+  "/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/test_PATH_REGULATION/bin/CodeCraft-2019.pdb"
+  "/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/test_PATH_REGULATION/bin/CodeCraft-2019"
 )
 
 # Per-language clean rules from dependency scanning.

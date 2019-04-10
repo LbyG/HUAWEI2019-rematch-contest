@@ -93,6 +93,8 @@ public:
     // some way to prevent deadlock
     void prevent_deadlock(int T);
     
+    // estimate time car go to destination
+    int estimate_spend_time(car estimate_car);
     // reluate car start time and path
     int car_path_regulation(car car_iter, int start_time);
     // regulate all cars start time and path
