@@ -105,6 +105,9 @@ public:
     // else car can't enter road, need wait previous car to be termination state return 0
     int car_into_road(car into_car);
     
+    // get car in road and schedule status is 1(wait status)
+    vector<car> get_deadlock_car();
+    
     // output road status
     void output_status(int T);
     

@@ -344,6 +344,18 @@ int road::car_into_road(car into_car) {
     return 0;
 }
 
+// get car in road and schedule status is 1(wait status)
+vector<car> road::get_deadlock_car() {
+    vector<car> deadlock_car;
+    for (vector<list<car>>::iterator iter = this->cars_in_road.begin(); iter != this->cars_in_road.end(); iter ++) {
+        for (list<car>::iterator car_iter = iter->begin(); car_iter != iter->end(); car_iter ++) {
+            if (car_iter->get_schedule_status() == 1)
+                deadlock_car.push_back(*car_iter);
+        }
+    }
+    return deadlock_car;
+}
+
 // output road status
 void road::output_status(int T) {
     cout << "road id = " << this->id << " from = " << this->from << " to = " << this->to << " length = " << this->length << " speed = " << this->speed << endl;
@@ -371,12 +383,15 @@ double road::check_capacity(int x, int y, int car_speed) {
     int sum_capacity = 0;
     double car_in_road_capacity = config().count_capacity(this->channel, this->length, this->speed);//min(this->speed, car_speed));
     for (int i = x; i <= y; i ++) {
-        if (this->situation_car_running_in_road[i] - 0.001 > car_in_road_capacity)
+        if (this->situation_car_running_in_road[i] - 0.001 > car_in_road_capacity * config().max_car_capacity_ratio)
             return 2.0;
         sum_car_running += max(0.0, this->situation_car_running_in_road[i]);
         sum_capacity += car_in_road_capacity;
     }
-    return 1.0 * sum_car_running / sum_capacity;
+    double res = 1.0 * sum_car_running / sum_capacity;
+    if (res > config().max_car_capacity_sum_ratio)
+        return 2.0;
+    return res;
 }
 
 // modify the situation of cars running in road

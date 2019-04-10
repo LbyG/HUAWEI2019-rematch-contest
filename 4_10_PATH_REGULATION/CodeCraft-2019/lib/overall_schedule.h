@@ -59,6 +59,12 @@ private:
     // vector of roads connect to cross
     list<road> roads_connect_cross;
     
+    // if car_can_from_to[time][from][to] == car_can_from_to_flag[time][from], then car can start from->to in time
+    vector<map<int, map<int, int>>> car_can_from_to;
+    vector<map<int, int>> car_can_from_to_flag;
+    // car start time in path regulation
+    int car_can_from_to_time;
+    
     // ==================backup status===================================
     map<int, int> backup_arrive_car_id_count;
     int backup_T;

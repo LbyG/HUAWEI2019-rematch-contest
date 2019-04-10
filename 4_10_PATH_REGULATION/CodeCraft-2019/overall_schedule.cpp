@@ -392,29 +392,29 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
     for (list<road>::iterator iter = roads_connect_cross.begin(); iter != roads_connect_cross.end(); iter ++) {
         if (!iter->if_no_car_through_cross()) {
             //iter->add_deadlock_situation_car_running_in_road(max(0, T - 100), T + 50, 1);
-            car deadlock_car = iter->get_car_priority_through_cross();
-            if (deadlock_car.get_whether_preset() == 0) {
-                this->deadlock_epoch_step = (this->deadlock_epoch_step) % 9;
-                if (deadlock_car.get_priority() == car_priority && this->cars[deadlock_car.get_id()].get_whether_finish_find_path() == 1) {
-                    this->cars[deadlock_car.get_id()].set_whether_finish_find_path(0);
-                    /*out << "car_id = " << deadlock_car.get_id() << " whether_finish_find_path = " << this->cars[deadlock_car.get_id()].get_whether_finish_find_path() << endl;
-                    for (vector<car>::iterator iter = this->cars_start_run.begin(); iter != this->cars_start_run.end(); iter ++)
-                        if (iter->get_id() == deadlock_car.get_id())
-                            cout << "!!!!!!!!!!!!!!!" << endl;*/
-                    count ++;
-                    //this->car_path_regulation(deadlock_car, deadlock_car.get_schedule_start_time() + 1);
+            vector<car> deadlock_car = iter->get_deadlock_car();
+            int road_count = 0;
+            for (vector<car>::iterator car_iter = deadlock_car.begin(); car_iter != deadlock_car.end(); car_iter ++) {
+                if (car_iter->get_whether_preset() == 0) {
+                    this->deadlock_epoch_step = (this->deadlock_epoch_step) % 9;
+                    if (car_iter->get_priority() == car_priority && this->cars[car_iter->get_id()].get_whether_finish_find_path() == 1) {
+                        this->cars[car_iter->get_id()].set_whether_finish_find_path(0);
+                        count ++;
+                        road_count ++;
+                        if (road_count > config().max_withdraw_in_road)
+                            break;
+                    }
                 }
             }
-            //this->cars[deadlock_car.get_id()].set_schedule_start_time(deadlock_car.get_schedule_start_time() + this->deadlock_step);
         }
     }
     cout << "deadlock count = " << count << endl;
     if (count == 0) {
         for (vector<car>::iterator car_iter = this->cars_start_run.begin(); car_iter != this->cars_start_run.end(); car_iter ++) {
             if (this->cars[car_iter->get_id()].get_whether_finish_find_path() == 1) {
-                count ++;
                 if (count % config().prevent_deadlock_metric == 0)
                     this->cars[car_iter->get_id()].set_whether_finish_find_path(0);
+                count ++;
             }
         }
     }
@@ -497,6 +497,7 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
             }
             if (updata_cross_id == -1)
                 break;
+            this->car_can_from_to[this->car_can_from_to_time][car_iter.get_from()][updata_cross_id] = this->car_can_from_to_flag[this->car_can_from_to_time][car_iter.get_from()] + 1;
             updata_flag[updata_cross_id] = true;
             map<int, road*> roads_departure_cross = this->crosses[updata_cross_id].get_road_departure_cross();
             for (map<int, road*>::iterator road_iter = roads_departure_cross.begin(); road_iter != roads_departure_cross.end(); road_iter ++) {
@@ -506,7 +507,7 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
                 int next_cross_id = (road_iter->second)->get_to();
                 double congestion = road_iter->second->check_capacity(updata_cross_time, updata_cross_time + through_time - 1, car_iter.get_speed());
                 if (congestion < 1) {
-                    congestion = max(congestion - config().congestion_threshold, 0.0);
+                    congestion = config().congestion_metric * max(congestion - config().congestion_threshold, 0.0);
                     if (cross_arrive_time[next_cross_id] > updata_cross_time + through_time * (1 + congestion)) {
                         cross_arrive_time[next_cross_id] = updata_cross_time + through_time * (1 + congestion);
                         updata_from[next_cross_id] = updata_cross_id;
@@ -593,13 +594,19 @@ void overall_schedule::cars_path_regulation() {
             this->cars_start_run.clear();
             this->cars_wait_run.clear();
             int path_regulation_fail_count = 0;
+            this->car_can_from_to = vector<map<int, map<int, int>>>(schedule_step, map<int, map<int, int>>());
+            this->car_can_from_to_flag = vector<map<int, int>>(schedule_step, map<int, int>());
             for (vector<car>::iterator car_iter = this->cars_arrive_schedule_start_time.begin(); car_iter != this->cars_arrive_schedule_start_time.end(); car_iter ++) {
                 int flag = -1;
                 if (path_regulation_fail_count < config().max_path_regulation_fail_count)
                     for (int i = start_time; i < start_time + schedule_step; i += max(1, schedule_step / 10)) {
-                        flag = this->car_path_regulation(*car_iter, start_time);
-                        if (flag != -1)
-                            break;
+                        this->car_can_from_to_time = i - start_time;
+                        if (this->car_can_from_to[this->car_can_from_to_time][car_iter->get_from()][car_iter->get_to()] == this->car_can_from_to_flag[this->car_can_from_to_time][car_iter->get_from()]) {
+                            flag = this->car_path_regulation(*car_iter, start_time);
+                            if (flag != -1)
+                                break;
+                        }
+                        this->car_can_from_to_flag[this->car_can_from_to_time][car_iter->get_from()] ++;
                     }
                 //cout << start_time << " " << flag << endl;
                 if (flag != -1) {
@@ -651,7 +658,7 @@ void overall_schedule::cars_path_regulation() {
             this->cars_arrive_schedule_start_time = this->cars_wait_run;
             start_time += schedule_step;
             if (this->cars_arrive_schedule_start_time.size() < 5000)
-                schedule_step = 5;
+                schedule_step = 1;
             else if (start_time > 100)
                 schedule_step = 50;
             else if (start_time > 10)
