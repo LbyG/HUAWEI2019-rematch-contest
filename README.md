@@ -1,6 +1,10 @@
 # HUWEI2019-rematch-contest
 HUWEI2019 rematch contest
 
+TODO<br>
+* 修改解死锁的方法，如果死锁道路上无新安排车辆则撤回会通过死锁道路的车辆
+* 修改对于车辆通过道路时间的预估，使之更接近于实际情况的估计
+
 4.9号<br>
 * 新的调度模型，先优先车辆后普通车辆，预估距离长的车辆优先考虑出发。
 * 一个个时间段的进行车辆的路径规划，每个时间段路径规划后使用调度器检查是否有死锁。如果死锁则撤回路口死锁的新安排车辆（car.whether_finish_find_path==1），反复撤回，直到没有死锁为止。如果路口死锁车辆都是预置车辆（car.whether_preset==1）和已安排车辆（car.whether_finish_find_path==2）,则以1/prevent_deadlock_metric的概率撤回还在路上的新安排车辆（car.whether_finish_find_path==1）
