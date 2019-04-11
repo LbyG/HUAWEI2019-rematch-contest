@@ -41,6 +41,7 @@ private:
     
     // ==============================================================
     // path regulation
+    map<int, int> leave_road_time;
     
 public:
     car();
@@ -91,6 +92,11 @@ public:
     
     // ==============================================================
     // path regulation
+    
+    // set leave_road_time[road_id] = time
+    void set_leave_road_time(int road_id, int time);
+    // return leave road time
+    int get_leave_road_time(int road_id);
     
     string to_string();
 };

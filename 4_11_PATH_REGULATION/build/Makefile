@@ -177,6 +177,33 @@ car.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car.cpp.s
 .PHONY : car.cpp.s
 
+car_arrive_cross.o: car_arrive_cross.cpp.o
+
+.PHONY : car_arrive_cross.o
+
+# target to build an object file
+car_arrive_cross.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car_arrive_cross.cpp.o
+.PHONY : car_arrive_cross.cpp.o
+
+car_arrive_cross.i: car_arrive_cross.cpp.i
+
+.PHONY : car_arrive_cross.i
+
+# target to preprocess a source file
+car_arrive_cross.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car_arrive_cross.cpp.i
+.PHONY : car_arrive_cross.cpp.i
+
+car_arrive_cross.s: car_arrive_cross.cpp.s
+
+.PHONY : car_arrive_cross.s
+
+# target to generate assembly for a file
+car_arrive_cross.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeCraft-2019.dir/build.make CMakeFiles/CodeCraft-2019.dir/car_arrive_cross.cpp.s
+.PHONY : car_arrive_cross.cpp.s
+
 car_influence_to_road.o: car_influence_to_road.cpp.o
 
 .PHONY : car_influence_to_road.o
@@ -462,6 +489,9 @@ help:
 	@echo "... car.o"
 	@echo "... car.i"
 	@echo "... car.s"
+	@echo "... car_arrive_cross.o"
+	@echo "... car_arrive_cross.i"
+	@echo "... car_arrive_cross.s"
 	@echo "... car_influence_to_road.o"
 	@echo "... car_influence_to_road.i"
 	@echo "... car_influence_to_road.s"

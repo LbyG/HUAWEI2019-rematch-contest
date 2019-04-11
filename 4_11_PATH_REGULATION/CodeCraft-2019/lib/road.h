@@ -40,6 +40,10 @@ private:
     
     // situation of cars running in road
     vector<double> situation_car_running_in_road;
+    // situation of back car_id running in road
+    vector<int> situation_back_car_id_running_in_road;
+    // situation of car running into road
+    vector<vector<vector<double>>> situation_car_into_road;
 public:
     // road_info = (id,length,speed,channel,from,to,isDuplex)
     road(string road_info);
@@ -121,9 +125,14 @@ public:
     
     // modify the situation of cars running in road
     void car_running_count(int x, int y, double priority_weight);
+    // modify the situation of car run into road
+    void car_into_road_count(int T, int car_priority, int road_id);
     
     // count real situation car running in road during car schedule
     void count_real_situation_car_running_in_road(int T);
+    
+    // count the time of car through road
+    int get_through_time(int start_time, int car_priority, int car_turn_direct, int car_speed, map<int, car> &overall_cars);
 };
 
 bool operator<(const road &a, const road &b);

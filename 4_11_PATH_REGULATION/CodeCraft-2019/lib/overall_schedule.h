@@ -114,8 +114,6 @@ public:
     void output_schedule_status();
     
     //================================================================
-    // count preset car to situation_car_running_in_road
-    void preset_car_to_situation(car preset_car);
     
     // some way to prevent deadlock
     void prevent_deadlock(int T, int car_priority);

@@ -81,7 +81,7 @@ void road::set_into_channel_id(int into_channel_id) {
 
 // road.wait_road_direction_count = [0, 0, 0]
 void road::init_wait_into_road_direction_count() {
-    this->wait_into_road_direction_count = vector<vector<int>>(config().priority_N, vector<int>(3, 0));
+    this->wait_into_road_direction_count = vector<vector<int>>(config().priority_N, vector<int>(config().direct_N - 1, 0));
 }
 
 // road.wait_car_forefront_of_each_channel.clear();
@@ -143,7 +143,6 @@ bool road::check_direct_priority(int car_priority, int car_turn_direct) {
         if (this->wait_into_road_direction_count[car_priority][i] > 0)
             return false;
         else if (this->wait_into_road_direction_count[car_priority][i] < 0 || this->wait_into_road_direction_count[car_priority][i] > 1) {
-            cout << "road id = " << this->id << " from = " << this->from << " to = " << this->to << endl;
             cout << "road::check_direct_priority error !!!!!!!!!!!!!!!!!!" << endl;
         }
     for (car_priority ++; car_priority < config().priority_N; car_priority ++) {
@@ -151,7 +150,6 @@ bool road::check_direct_priority(int car_priority, int car_turn_direct) {
             if (this->wait_into_road_direction_count[car_priority][i] > 0)
                 return false;
             else if (this->wait_into_road_direction_count[car_priority][i] < 0 || this->wait_into_road_direction_count[car_priority][i] > 1) {
-                cout << "road id = " << this->id << " from = " << this->from << " to = " << this->to << endl;
                 cout << "road::check_direct_priority error !!!!!!!!!!!!!!!!!!" << endl;
             }
     }
@@ -375,6 +373,8 @@ void road::output_status(int T) {
 // initial situation_car_running_in_road;
 void road::init_situation_car_running_in_road() {
     this->situation_car_running_in_road = vector<double>(config().max_T, 0);
+    this->situation_back_car_id_running_in_road = vector<int>(config().max_T, 0);
+    this->situation_car_into_road = vector<vector<vector<double>>>(config().max_T, vector<vector<double>>(config().priority_N, vector<double>(config().direct_N - 1)));
 }
     
 // check whether cars can run into road between x to y
@@ -401,6 +401,11 @@ void road::car_running_count(int x, int y, double priority_weight) {
     }
 }
 
+// modify the situation of car run into road
+void road::car_into_road_count(int T, int car_priority, int road_id) {
+    this->situation_car_into_road[T][car_priority][road_id] ++;
+}
+
 // count real situation car running in road during car schedule
 void road::count_real_situation_car_running_in_road(int T) {
     this->situation_car_running_in_road[T] = 0;
@@ -410,6 +415,39 @@ void road::count_real_situation_car_running_in_road(int T) {
         for (list<car>::iterator car_iter = iter->begin(); car_iter != iter->end(); car_iter ++)
             if (car_iter->get_schedule_start_time() < T)
                 this->situation_car_running_in_road[T] ++;
+    
+    if (this->cars_in_road[0].empty())
+        this->situation_back_car_id_running_in_road[T] = 0;
+    else
+        this->situation_back_car_id_running_in_road[T] = this->cars_in_road[0].back().get_id();
+}
+
+// count the time of car through road
+int road::get_through_time(int start_time, int car_priority, int car_turn_direct, int car_speed, map<int, car> &overall_cars) {
+    double ratio = 0.0;
+    while (true) {
+        int car_into_count = this->situation_car_into_road[start_time][car_priority][car_turn_direct];
+        int previous_car_into_count = 0;
+        for (int i = 0; i < car_turn_direct; i ++)
+            previous_car_into_count += this->situation_car_into_road[start_time][car_priority][i];
+        for (int i = car_priority + 1; i < config().priority_N; i ++)
+            for (int j = 0; j < 3; j ++)
+                previous_car_into_count += this->situation_car_into_road[start_time][i][j];
+        ratio += 1.0 * car_into_count / (previous_car_into_count + 1);
+        if (ratio > 0.5) {
+            start_time ++;
+            ratio -= 1.0;
+        } else 
+            break;
+    }
+    int speed = min(car_speed, this->speed);
+    int arrive_time = start_time + (this->length + speed - 1) / speed;
+    int back_car_id = this->situation_back_car_id_running_in_road[start_time];
+    if (back_car_id != 0) {
+        //cout << overall_cars[back_car_id].get_leave_road_time(this->get_id()) << endl;
+        arrive_time = max(arrive_time, overall_cars[back_car_id].get_leave_road_time(this->get_id()));
+    }
+    return arrive_time;
 }
 
 // Overload < for road by id

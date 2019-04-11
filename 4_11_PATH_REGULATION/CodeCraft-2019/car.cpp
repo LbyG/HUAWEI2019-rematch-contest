@@ -144,6 +144,16 @@ int car::get_channel_id() const {
     return this->channel_id;
 }
 
+// set leave_road_time[road_id] = time
+void car::set_leave_road_time(int road_id, int time) {
+    this->leave_road_time[road_id] = time;
+}
+
+// return leave road time
+int car::get_leave_road_time(int road_id) {
+    return this->leave_road_time[road_id];
+}
+
 string car::to_string() {
     string ans;
     stringstream ss;

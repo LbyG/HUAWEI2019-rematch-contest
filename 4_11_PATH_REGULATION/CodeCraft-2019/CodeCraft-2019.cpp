@@ -2,6 +2,9 @@
 #include "car.h"
 #include "overall_schedule.h"
 #include "util.h"
+#include "car_arrive_cross.h"
+
+#include <queue>
 
 using namespace std;
 
@@ -41,29 +44,6 @@ int main(int argc, char *argv[])
     end=clock();
     cost=end-start;
     cout << double(cost)/CLOCKS_PER_SEC << endl;
-    /*
-    list<int> a;
-    a.push_back(1);
-    a.push_back(10);
-    int* p = &a.back();
-    list<int>::iterator iter = a.begin();
-    iter ++;
-    cout << *iter << endl;
-    *p = 2;
-    cout << *iter << endl;
-    list<int> b = a;
-    iter = b.begin();
-    iter ++;
-    *iter = 3;
-    iter = a.begin();
-    iter ++;
-    cout << *iter << endl;
-    b.push_back(20);
-    a = b;
-    cout << *iter << endl;
-    *p = 4;
-    cout << *iter << endl;
-    */
 	
 	return 0;
 }

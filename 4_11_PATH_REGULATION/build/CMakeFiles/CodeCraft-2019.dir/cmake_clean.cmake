@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CodeCraft-2019.dir/CodeCraft-2019.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/car.cpp.o"
+  "CMakeFiles/CodeCraft-2019.dir/car_arrive_cross.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/car_influence_to_road.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/cmp_car_dis_to_cross_and_channel_id.cpp.o"
   "CMakeFiles/CodeCraft-2019.dir/cmp_car_id.cpp.o"
