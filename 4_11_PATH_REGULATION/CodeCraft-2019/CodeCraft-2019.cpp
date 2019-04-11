@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
     double start,end,cost;
     start=clock();
     OS.cars_path_regulation();
+    OS.initial_cars_state_in_T0();
     int T = OS.schedule_cars(0);
     std::cout << "T = " << T << std::endl;
 	// TODO:write output file
@@ -44,6 +45,7 @@ int main(int argc, char *argv[])
     end=clock();
     cost=end-start;
     cout << double(cost)/CLOCKS_PER_SEC << endl;
+    
 	
 	return 0;
 }

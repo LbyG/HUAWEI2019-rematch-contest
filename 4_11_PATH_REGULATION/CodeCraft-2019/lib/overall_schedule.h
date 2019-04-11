@@ -11,11 +11,13 @@
 #include "cmp_car_schedule_start_time.h"
 #include "cmp_car_id.h"
 #include "car_influence_to_road.h"
+#include "config.h"
 
 using namespace std;
 
 class overall_schedule {
 private:
+    config my_config = config();
     int deadlock_step = 0;
     int deadlock_epoch_step = 0;
     long double metric_a;

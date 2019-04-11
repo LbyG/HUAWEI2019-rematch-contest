@@ -1,6 +1,7 @@
 #include "config.h"
 
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -17,4 +18,8 @@ config::config() {
 
 double config::count_capacity(int channel, int length, int speed) {
     return this->capacity_metric * this->channel_weight[channel] * max(1, length - speed);
+}
+
+double config::get_channel_weight(int channel) {
+    return this->channel_weight[channel];
 }

@@ -2,6 +2,7 @@
 #define ROAD_H
 
 #include "car.h"
+#include "config.h"
 #include "cmp_car_dis_to_cross_and_channel_id.h"
 
 #include <vector>
@@ -12,6 +13,7 @@ using namespace std;
 
 class road {
 private:
+    config my_config = config();
     int id; // road id
     int length; // road length
     int speed; // road max speed limit
@@ -43,7 +45,10 @@ private:
     // situation of back car_id running in road
     vector<int> situation_back_car_id_running_in_road;
     // situation of car running into road
+    // situation_car_into_road[max_T][priority_N][direct_N - 1]
     vector<vector<vector<double>>> situation_car_into_road;
+    // situation of car wait to run into road
+    vector<vector<vector<int>>> situation_car_wait_into_road;
 public:
     // road_info = (id,length,speed,channel,from,to,isDuplex)
     road(string road_info);
@@ -130,6 +135,9 @@ public:
     
     // count real situation car running in road during car schedule
     void count_real_situation_car_running_in_road(int T);
+    
+    // count situation of car wait into road
+    void count_situation_car_wait_into_road(int start_time, int end_time);
     
     // count the time of car through road
     int get_through_time(int start_time, int car_priority, int car_turn_direct, int car_speed, map<int, car> &overall_cars);

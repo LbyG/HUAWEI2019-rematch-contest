@@ -7,6 +7,9 @@ using namespace std;
 
 class config {
 public:
+    //into_capacity = into_capacity_metric * get_channel_weight(channel) * speed;
+    double into_capacity_metric = 0.5;
+    
     int MAX_VAL = 1e8;
     // wait_into_road_direction_count[priority_N][direct_N - 1], situation_car_into_road[max_T][priority_N][direct_N - 1]
     int priority_N = 2;
@@ -30,9 +33,10 @@ public:
     // channel for road capacity is channel_metric^channel
     double channel_metric = 0.8;
     // road capacity metric
-    double capacity_metric = 0.9;
+    double capacity_metric = 1.0;
     vector<double> channel_weight;
     double count_capacity(int channel, int length, int speed);
+    double get_channel_weight(int channel);
     config();
 };
 
