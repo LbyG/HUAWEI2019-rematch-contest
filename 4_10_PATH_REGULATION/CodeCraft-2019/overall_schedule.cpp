@@ -536,7 +536,7 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
         }
         vector<int> schedule_info;
         schedule_info.push_back(car_iter.get_id());
-        schedule_info.push_back(cross_arrive_time[car_iter.get_to()]);
+        schedule_info.push_back(start_time);
         for (vector<int>::reverse_iterator riter = schedule_path.rbegin();riter!=schedule_path.rend();riter++)
             schedule_info.push_back(*riter);
         //car_iter->set_schedule_path(schedule_info);
