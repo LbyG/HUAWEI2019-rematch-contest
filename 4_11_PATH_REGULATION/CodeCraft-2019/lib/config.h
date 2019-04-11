@@ -16,7 +16,7 @@ public:
     // wait_into_road_direction_count[priority_N][direct_N - 1], situation_car_into_road[max_T][priority_N][direct_N - 1]
     int direct_N = 4;
     // situation_car_running_in_road[max_T], situation_car_into_road[max_T][priority_N][direct_N - 1] 
-    int max_T = 10000;
+    int max_T = 3000;
     int max_channel = 100;
     int max_path_regulation_fail_count = 200000;
     // if car number / capacity > max_car_capacity_ratio in one time, then this road can't through

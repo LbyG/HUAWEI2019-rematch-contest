@@ -2,12 +2,13 @@
 HUWEI2019 rematch contest
 
 TODO<br>
-* 加速road::get_through_time中对start_time中ratio的计算
 * (效果不太好)修改解死锁的方法，如果死锁道路上无新安排车辆则撤回会通过死锁道路的车辆
 
 4.11号<br>
 * 修改了一个巨大的bug，之前对于规划车辆的发车时间设置错误！！！！
 * 修改对于车辆通过道路时间的预估，使之更接近于实际情况的估计
+* 使用road::count_situation_car_wait_into_road加速road::get_through_time中对start_time中ratio的计算
+* 线上判题器对于空间的限制大概为1G，当使用空间过大的时候会program run fail
 
 4.9号<br>
 * 新的调度模型，先优先车辆后普通车辆，预估距离长的车辆优先考虑出发。

@@ -15,10 +15,6 @@ overall_schedule.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_11_PATH_REGULATION/CodeCraft-2019/overall_schedule.h
 util.h
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_11_PATH_REGULATION/CodeCraft-2019/util.h
-car_arrive_cross.h
-/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_11_PATH_REGULATION/CodeCraft-2019/car_arrive_cross.h
-queue
--
 
 /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_11_PATH_REGULATION/CodeCraft-2019/car.cpp
 car.h

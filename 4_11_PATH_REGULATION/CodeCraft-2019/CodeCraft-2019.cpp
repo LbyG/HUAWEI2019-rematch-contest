@@ -2,9 +2,6 @@
 #include "car.h"
 #include "overall_schedule.h"
 #include "util.h"
-#include "car_arrive_cross.h"
-
-#include <queue>
 
 using namespace std;
 
@@ -22,13 +19,13 @@ int main(int argc, char *argv[])
 	std::string crossPath(argv[3]);
 	std::string presetAnswerPath(argv[4]);
 	std::string answerPath(argv[5]);
-	
+	/*
 	std::cout << "carPath is " << carPath << std::endl;
 	std::cout << "roadPath is " << roadPath << std::endl;
 	std::cout << "crossPath is " << crossPath << std::endl;
 	std::cout << "presetAnswerPath is " << presetAnswerPath << std::endl;
 	std::cout << "answerPath is " << answerPath << std::endl;
-	
+	*/
 	// TODO:read input filebuf
     overall_schedule OS;
     OS.load_cars_roads_crosses(carPath, roadPath, crossPath);
