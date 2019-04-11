@@ -491,9 +491,8 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
                 }
                 cross_arrive_time_queue.pop();
             }
-            if (updata_cross_id == -1)
+            if (updata_cross_id == -1 || updata_cross_id == car_iter.get_to())
                 break;
-            this->car_can_from_to[this->car_can_from_to_time][car_iter.get_from()][updata_cross_id] = this->car_can_from_to_flag[this->car_can_from_to_time][car_iter.get_from()] + 1;
             updata_flag[updata_cross_id][updata_road_id] = true;
             map<int, road*> roads_departure_cross = this->crosses[updata_cross_id].get_road_departure_cross();
             for (map<int, road*>::iterator road_iter = roads_departure_cross.begin(); road_iter != roads_departure_cross.end(); road_iter ++) {
@@ -510,6 +509,7 @@ int overall_schedule::car_path_regulation(car car_iter, int start_time) {
                         updata_from_cross_id[next_cross_id][next_road_id] = updata_cross_id;
                         updata_from_road_id[next_cross_id][next_road_id] = updata_road_id;
                         cross_arrive_time_queue.push(car_arrive_cross(next_cross_id, next_road_id, through_time));
+                        this->car_can_from_to[this->car_can_from_to_time][car_iter.get_from()][next_cross_id] = this->car_can_from_to_flag[this->car_can_from_to_time][car_iter.get_from()] + 1;
                     }
                 }
             }
