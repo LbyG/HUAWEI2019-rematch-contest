@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     OS.load_preset_answer(presetAnswerPath);
     double start,end,cost;
     start=clock();
-    OS.cars_path_regulation();
+    OS.cars_together_path_regulation();
     OS.initial_cars_state_in_T0();
     int T = OS.schedule_cars(0);
     std::cout << "T = " << T << std::endl;

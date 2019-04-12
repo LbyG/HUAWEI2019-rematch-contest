@@ -12,6 +12,7 @@ TODO<br>
 * 使用road::count_situation_car_wait_into_road加速road::get_through_time中对start_time中ratio的计算
 * 线上判题器对于空间的限制大概为1G，当使用空间过大的时候会program run fail
 * 小小的加速了car_can_from_to，最短路当目的地为最小值时结束路径搜索
+* 同时处理优先车辆的cars_together_path_regulation()比先处理优先车辆后处理非优先车辆的cars_path_regulation()性能差不多，但速度会快很多
 
 4.9号<br>
 * 新的调度模型，先优先车辆后普通车辆，预估距离长的车辆优先考虑出发。
@@ -22,3 +23,4 @@ TODO<br>
 * 修改了解锁的方法。当发生死锁时，撤回死锁路上的等待状态（car.schedule_status==1）的新安排车辆（car.whether_finish_find_path==1），每条道路最多撤回config.max_withdraw_in_road辆车。
 * 修改了道路能否通行的判断方法。如果在车辆通过道路的某个时刻的car_num/capacity>config.max_car_capacity_ratio，则车辆无法通过该道路。如果车辆通过道路的总时间里car_num_sum/capacity_sum>config.max_car_capacity_sum_ratio，则车辆无法通过道路。
 * 加速对于车辆的路径规划。如果前一辆车无法在time时刻从from到to，那么下一辆车也大概率无法在time时刻从from到to。主要通过overall_schedule.car_can_from_to, car_can_from_to_flag和car_can_from_to_time来维护。如果car_can_from_to[car_can_from_to_time][from][to] == car_can_from_to_flag[car_can_from_to_time][from]则表示车可以在car_can_from_to_time从from到to
+* 同时处理优先车辆的cars_together_path_regulation()比先处理优先车辆后处理非优先车辆的cars_path_regulation()性能差不多，但速度会快很多

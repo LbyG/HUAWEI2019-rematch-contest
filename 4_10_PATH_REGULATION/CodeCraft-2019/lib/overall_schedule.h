@@ -126,6 +126,7 @@ public:
     int car_path_regulation(car car_iter, int start_time);
     // regulate all cars start time and path
     void cars_path_regulation();
+    void cars_together_path_regulation();
     
     // write answer to answer file
     void save_answer(string answer_path);

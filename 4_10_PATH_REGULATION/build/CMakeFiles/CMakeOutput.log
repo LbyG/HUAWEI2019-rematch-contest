@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/lbyg/Kaggle/HUAWEI2019/2
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f12c8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_f12c8.dir/build.make CMakeFiles/cmTC_f12c8.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_2910e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2910e.dir/build.make CMakeFiles/cmTC_2910e.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_f12c8.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_f12c8.dir/testCCompiler.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_f12c8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f12c8.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f12c8.dir/testCCompiler.c.o  -o cmTC_f12c8 
+Building C object CMakeFiles/cmTC_2910e.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2910e.dir/testCCompiler.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_2910e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2910e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_2910e.dir/testCCompiler.c.o  -o cmTC_2910e 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a7c3b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a7c3b.dir/build.make CMakeFiles/cmTC_a7c3b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fe625/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fe625.dir/build.make CMakeFiles/cmTC_fe625.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_a7c3b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7c3b.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o  -o cmTC_a7c3b 
+Building C object CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_fe625
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe625.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o  -o cmTC_fe625 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -61,9 +61,9 @@ Thread model: posix
 gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a7c3b' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccApvAf5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a7c3b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a7c3b' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fe625' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHMSJYg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_fe625 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fe625' '-mtune=generic' '-march=x86-64'
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -71,14 +71,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_a7c3b/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_a7c3b.dir/build.make CMakeFiles/cmTC_a7c3b.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_fe625/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_fe625.dir/build.make CMakeFiles/cmTC_fe625.dir/build]
   ignore line: [make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”]
-  ignore line: [Building C object CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_a7c3b]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7c3b.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o  -o cmTC_a7c3b ]
+  ignore line: [Building C object CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_fe625]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe625.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o  -o cmTC_fe625 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -90,13 +90,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a7c3b' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccApvAf5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a7c3b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_fe625' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHMSJYg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_fe625 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccApvAf5.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccHMSJYg.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a7c3b] ==> ignore
+    arg [cmTC_fe625] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -131,7 +131,7 @@ Parsed C implicit link information from above output:
     arg [-L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin] ==> dir [/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin]
     arg [-L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin] ==> dir [/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_a7c3b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_fe625.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -166,14 +166,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_19645/fast"
-/usr/bin/make -f CMakeFiles/cmTC_19645.dir/build.make CMakeFiles/cmTC_19645.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_66f22/fast"
+/usr/bin/make -f CMakeFiles/cmTC_66f22.dir/build.make CMakeFiles/cmTC_66f22.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_19645.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_19645.dir/feature_tests.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_19645
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19645.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_19645.dir/feature_tests.c.o  -o cmTC_19645 
+Building C object CMakeFiles/cmTC_66f22.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_66f22.dir/feature_tests.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_66f22
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66f22.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_66f22.dir/feature_tests.c.o  -o cmTC_66f22 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -186,14 +186,14 @@ make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-re
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c098f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c098f.dir/build.make CMakeFiles/cmTC_c098f.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_1f06e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1f06e.dir/build.make CMakeFiles/cmTC_1f06e.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_c098f.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_c098f.dir/feature_tests.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_c098f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c098f.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c098f.dir/feature_tests.c.o  -o cmTC_c098f 
+Building C object CMakeFiles/cmTC_1f06e.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_1f06e.dir/feature_tests.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_1f06e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1f06e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_1f06e.dir/feature_tests.c.o  -o cmTC_1f06e 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -206,14 +206,14 @@ make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-re
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a30bd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a30bd.dir/build.make CMakeFiles/cmTC_a30bd.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ec198/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec198.dir/build.make CMakeFiles/cmTC_ec198.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_a30bd.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_a30bd.dir/feature_tests.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_a30bd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a30bd.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a30bd.dir/feature_tests.c.o  -o cmTC_a30bd 
+Building C object CMakeFiles/cmTC_ec198.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_ec198.dir/feature_tests.c.o   -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ec198
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec198.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ec198.dir/feature_tests.c.o  -o cmTC_ec198 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -224,28 +224,28 @@ make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-re
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_874c6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_874c6.dir/build.make CMakeFiles/cmTC_874c6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0d865/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0d865.dir/build.make CMakeFiles/cmTC_0d865.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_874c6.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_874c6.dir/testCXXCompiler.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_874c6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_874c6.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_874c6.dir/testCXXCompiler.cxx.o  -o cmTC_874c6 
+Building CXX object CMakeFiles/cmTC_0d865.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_0d865.dir/testCXXCompiler.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_0d865
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d865.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_0d865.dir/testCXXCompiler.cxx.o  -o cmTC_0d865 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_567d4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_567d4.dir/build.make CMakeFiles/cmTC_567d4.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_19d17/fast"
+/usr/bin/make -f CMakeFiles/cmTC_19d17.dir/build.make CMakeFiles/cmTC_19d17.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_567d4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_567d4.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_567d4 
+Building CXX object CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_19d17
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19d17.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_19d17 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -257,9 +257,9 @@ Thread model: posix
 gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_567d4' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc42yYXo.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_567d4 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_567d4' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_19d17' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccY9KUIC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_19d17 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_19d17' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -267,14 +267,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_567d4/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_567d4.dir/build.make CMakeFiles/cmTC_567d4.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_19d17/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_19d17.dir/build.make CMakeFiles/cmTC_19d17.dir/build]
   ignore line: [make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”]
-  ignore line: [Building CXX object CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_567d4]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_567d4.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_567d4 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_19d17]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19d17.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_19d17 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -286,13 +286,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin/:/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_567d4' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc42yYXo.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_567d4 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_19d17' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccY9KUIC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_19d17 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/tbb/lib/intel64_lin/gcc4.7 -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin -L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc42yYXo.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccY9KUIC.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -312,7 +312,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_567d4] ==> ignore
+    arg [cmTC_19d17] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -327,7 +327,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin] ==> dir [/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64_lin]
     arg [-L/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin] ==> dir [/home/lbyg/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64_lin]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_567d4.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_19d17.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -358,14 +358,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0b477/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0b477.dir/build.make CMakeFiles/cmTC_0b477.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_5d780/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5d780.dir/build.make CMakeFiles/cmTC_5d780.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_0b477.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_0b477.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_0b477
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b477.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_0b477.dir/feature_tests.cxx.o  -o cmTC_0b477 
+Building CXX object CMakeFiles/cmTC_5d780.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_5d780.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_5d780
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d780.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_5d780.dir/feature_tests.cxx.o  -o cmTC_5d780 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -431,14 +431,14 @@ make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-re
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8d140/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8d140.dir/build.make CMakeFiles/cmTC_8d140.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_cf30a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cf30a.dir/build.make CMakeFiles/cmTC_cf30a.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_8d140.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_8d140.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_8d140
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8d140.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_8d140.dir/feature_tests.cxx.o  -o cmTC_8d140 
+Building CXX object CMakeFiles/cmTC_cf30a.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_cf30a.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_cf30a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cf30a.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_cf30a.dir/feature_tests.cxx.o  -o cmTC_cf30a 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -504,14 +504,14 @@ make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-re
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5ffe1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5ffe1.dir/build.make CMakeFiles/cmTC_5ffe1.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f4824/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f4824.dir/build.make CMakeFiles/cmTC_f4824.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_5ffe1.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_5ffe1.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_5ffe1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ffe1.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_5ffe1.dir/feature_tests.cxx.o  -o cmTC_5ffe1 
+Building CXX object CMakeFiles/cmTC_f4824.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_f4824.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f4824
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4824.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_f4824.dir/feature_tests.cxx.o  -o cmTC_f4824 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 
@@ -577,14 +577,14 @@ make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-re
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3e747/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3e747.dir/build.make CMakeFiles/cmTC_3e747.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ee64a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ee64a.dir/build.make CMakeFiles/cmTC_ee64a.dir/build
 make[1]: 进入目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_3e747.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_3e747.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3e747
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e747.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_3e747.dir/feature_tests.cxx.o  -o cmTC_3e747 
+Building CXX object CMakeFiles/cmTC_ee64a.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_ee64a.dir/feature_tests.cxx.o -c /home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_ee64a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ee64a.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_ee64a.dir/feature_tests.cxx.o  -o cmTC_ee64a 
 make[1]: 离开目录“/home/lbyg/Kaggle/HUAWEI2019/2019_first_SDK/HUWEI2019-rematch-contest/4_10_PATH_REGULATION/build/CMakeFiles/CMakeTmp”
 
 

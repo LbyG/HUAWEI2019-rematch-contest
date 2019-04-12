@@ -679,7 +679,136 @@ void overall_schedule::cars_path_regulation() {
         }
     }
 }
-    
+
+// regulate all cars start time and path
+void overall_schedule::cars_together_path_regulation() {
+    // init situation car running in_road
+    for (list<road>::iterator iter = this->roads_connect_cross.begin(); iter != this->roads_connect_cross.end(); iter ++) {
+        iter->init_situation_car_running_in_road();
+    }
+    // Adjust the order of the vehicle from low to high speed anc count preset car to situation_car_running_in_road
+    this->cars_to_regulate_path = vector<list<car>>(this->my_config.priority_N, list<car>());
+    for (map<int, car>::iterator iter = this->cars.begin(); iter != this->cars.end(); iter ++) {
+        if (iter->second.get_whether_preset() == 0) {
+            car new_car(iter->second);
+            //new_car.set_schedule_start_time(-1 * this->estimate_spend_time(new_car));
+            new_car.set_schedule_start_time(new_car.get_plan_time());
+            this->cars_to_regulate_path[new_car.get_priority()].push_back(new_car);
+        }
+    }
+    // initial state
+    this->arrive_car_id_count.clear();
+    this->initial_cars_state_in_T0();
+    int finish_T = this->schedule_cars(0);
+    while (finish_T == -1) {
+        cout << "preset car deadlock!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
+    }
+    for (list<road>::iterator iter = this->roads_connect_cross.begin(); iter != this->roads_connect_cross.end(); iter ++)
+        iter->count_situation_car_wait_into_road(0, finish_T);
+    int start_time = 1;
+    int schedule_step = 1;
+    for (int car_priority = this->my_config.priority_N - 1; car_priority >= 0; car_priority --)
+        this->cars_to_regulate_path[car_priority].sort();
+    this->cars_arrive_schedule_start_time.clear();
+    while (true) {
+        int wait_schedule_time_car_N = 0;
+        for (int car_priority = this->my_config.priority_N - 1; car_priority >= 0; car_priority --)
+            wait_schedule_time_car_N += this->cars_to_regulate_path[car_priority].size();
+        int wait_run_car_N = cars_arrive_schedule_start_time.size();
+        cout << "start_time = " << start_time << " remain_car_N = " << wait_schedule_time_car_N << " " << wait_run_car_N << endl;
+        if (wait_schedule_time_car_N + wait_run_car_N == 0)
+            break;
+        for (int car_priority = this->my_config.priority_N - 1; car_priority >= 0; car_priority --)
+            while (!this->cars_to_regulate_path[car_priority].empty() && this->cars_to_regulate_path[car_priority].front().get_schedule_start_time() <= start_time) {
+                car new_car(this->cars_to_regulate_path[car_priority].front());
+                this->cars_to_regulate_path[car_priority].pop_front();
+                new_car.set_schedule_start_time(-1 * this->estimate_spend_time(new_car));
+                this->cars_arrive_schedule_start_time.push_back(new_car);
+            }
+        cout << "start sort" << endl;
+        sort(this->cars_arrive_schedule_start_time.begin(), this->cars_arrive_schedule_start_time.end());
+        cout << "finish sort" << endl;
+        this->cars_start_run.clear();
+        this->cars_wait_run.clear();
+        int path_regulation_fail_count = 0;
+        this->car_can_from_to = vector<map<int, map<int, int>>>(schedule_step, map<int, map<int, int>>());
+        this->car_can_from_to_flag = vector<map<int, int>>(schedule_step, map<int, int>());
+        for (vector<car>::iterator car_iter = this->cars_arrive_schedule_start_time.begin(); car_iter != this->cars_arrive_schedule_start_time.end(); car_iter ++) {
+            int flag = -1;
+            if (path_regulation_fail_count < this->my_config.max_path_regulation_fail_count)
+                for (int i = start_time; i < start_time + schedule_step; i += max(1, schedule_step / 10)) {
+                    this->car_can_from_to_time = i - start_time;
+                    if (this->car_can_from_to[this->car_can_from_to_time][car_iter->get_from()][car_iter->get_to()] == this->car_can_from_to_flag[this->car_can_from_to_time][car_iter->get_from()]) {
+                        flag = this->car_path_regulation(*car_iter, start_time);
+                        if (flag != -1)
+                            break;
+                    }
+                    this->car_can_from_to_flag[this->car_can_from_to_time][car_iter->get_from()] ++;
+                }
+            //cout << start_time << " " << flag << endl;
+            if (flag != -1) {
+                // car start run
+                this->cars_start_run.push_back(*car_iter);
+            } else {
+                // car wait run
+                this->cars_wait_run.push_back(*car_iter);
+                path_regulation_fail_count ++;
+            }
+        }
+        cout << "before " << this->cars_start_run.size() << " " << this->cars_wait_run.size() << endl;
+        sort(this->cars_start_run.begin(), this->cars_start_run.end());
+        while (true) {
+            this->load_overall_schedule_status();
+            int count = 0;
+            for (vector<car>::iterator iter = this->cars_start_run.begin(); iter != this->cars_start_run.end(); iter ++) {
+                if (this->cars[iter->get_id()].get_whether_finish_find_path() > 0) {
+                    count ++;
+                    this->crosses[iter->get_from()].add_car_wait_to_run_in_road(this->cars[iter->get_id()]);
+                    this->cars_wait_schedule_start_time_n[iter->get_priority()] ++;
+                }
+            }
+            cout << "count = " << count << endl;
+            if (this->schedule_cars(0) > 0)
+                break;
+        }
+        // update status to backup=================
+        this->load_overall_schedule_status();
+        for (vector<car>::iterator iter = this->cars_start_run.begin(); iter != this->cars_start_run.end(); iter ++) {
+            if (this->cars[iter->get_id()].get_whether_finish_find_path() > 0) {
+                this->crosses[iter->get_from()].add_car_wait_to_run_in_road(this->cars[iter->get_id()]);
+                this->cars_wait_schedule_start_time_n[iter->get_priority()] ++;
+            }
+        }
+        for (int i = 0; i < schedule_step; i ++)
+            this->schedule_cars_one_time_unit(0);
+        this->save_overall_schedule_status();
+        // count_situation_car_wait_into_road
+        finish_T = this->schedule_cars(0);
+        for (list<road>::iterator iter = this->roads_connect_cross.begin(); iter != this->roads_connect_cross.end(); iter ++)
+            iter->count_situation_car_wait_into_road(start_time + schedule_step, finish_T);
+        // update status to backup=================
+        cout << "after " << this->cars_start_run.size() << " " << this->cars_wait_run.size() << endl;
+        for (vector<car>::iterator car_iter = this->cars_start_run.begin(); car_iter != this->cars_start_run.end(); car_iter ++) {
+            if (this->cars[car_iter->get_id()].get_whether_finish_find_path() == 0) {
+                car_iter->set_schedule_start_time(-1 * this->estimate_spend_time(*car_iter));
+                this->cars_wait_run.push_back(*car_iter);
+            } else {
+                this->cars[car_iter->get_id()].set_whether_finish_find_path(2);
+            }
+        }
+        this->cars_arrive_schedule_start_time = this->cars_wait_run;
+        start_time += schedule_step;
+        if (this->cars_arrive_schedule_start_time.size() < 5000)
+            schedule_step = 1;
+        else if (this->cars_arrive_schedule_start_time.size() > 5000)
+            schedule_step = 50;
+        else if (start_time > 100)
+            schedule_step = 50;
+        else if (start_time > 10)
+            schedule_step = 5;
+    }
+}
+
 // write answer to answer file
 void overall_schedule::save_answer(string answer_path) {
     ofstream answer_info_file(answer_path);
