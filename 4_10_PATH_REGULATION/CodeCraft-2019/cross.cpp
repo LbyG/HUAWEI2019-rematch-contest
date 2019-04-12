@@ -71,6 +71,11 @@ map<int, road*> cross::get_road_departure_cross() {
     return this->roads_departure_cross;
 }
 
+// get roads into cross
+vector<road*> cross::get_roads_into_cross() {
+    return this->roads_into_cross;
+}
+
 // add car wait to run in road
 void cross::add_car_wait_to_run_in_road(car car_wait_to_run) {
     this->roads_departure_cross[car_wait_to_run.get_next_road_in_path()]->add_car_wait_to_run_in_road(car_wait_to_run);

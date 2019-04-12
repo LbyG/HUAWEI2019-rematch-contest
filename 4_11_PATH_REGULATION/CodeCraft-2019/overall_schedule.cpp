@@ -374,12 +374,52 @@ void overall_schedule::output_schedule_status() {
     
 // some way to prevent deadlock
 void overall_schedule::prevent_deadlock(int T, int car_priority) {
-    int count = 0;
-    vector<int> road_id;
+    // find deadlock cycle road======================================================
+    map<road*, int> deadlock_road_into_road_count;
+    map<road*, road*> deadlock_road_into_road;
     for (list<road>::iterator iter = roads_connect_cross.begin(); iter != roads_connect_cross.end(); iter ++) {
         if (!iter->if_no_car_through_cross()) {
+            car deadlock_car = iter->get_car_priority_through_cross();
+            int now_road_id = iter->get_id();
+            int next_road_id = deadlock_car.get_next_road_in_path();
+            cross through_cross = this->crosses[iter->get_to()];
+            road* now_road = NULL;
+            vector<road*> roads_into_cross = through_cross.get_roads_into_cross();
+            for (vector<road*>::iterator iter = roads_into_cross.begin(); iter != roads_into_cross.end(); iter ++)
+                if ((*iter)->get_id() == now_road_id)
+                    now_road = (*iter);
+            if (now_road == NULL) {
+                cout << "overall_schedule::prevent_deadlock error!!!!!!!!!!!!!!!!!!!!!!!" << endl;
+            }
+            road* next_road = through_cross.get_road_departure_cross()[next_road_id];
+            
+            deadlock_road_into_road[now_road] = next_road;
+            deadlock_road_into_road_count[next_road] ++;
+            deadlock_road_into_road_count[now_road] = deadlock_road_into_road_count[now_road];
+        }
+    }
+    list<road*> road_list;
+    for (map<road*, int>::iterator iter = deadlock_road_into_road_count.begin(); iter != deadlock_road_into_road_count.end(); iter ++) {
+        if (iter->second == 0)
+            road_list.push_back(iter->first);
+    }
+    while (!road_list.empty()) {
+        road* now_road = road_list.front();
+        road_list.pop_front();
+        road* next_road = deadlock_road_into_road[now_road];
+        deadlock_road_into_road_count[next_road] --;
+        if (deadlock_road_into_road_count[next_road] == 0)
+            road_list.push_back(next_road);
+    }
+    // find deadlock cycle road======================================================
+    
+    int deadlock_road_count = 0;
+    int count = 0;
+    for (map<road*, int>::iterator iter = deadlock_road_into_road_count.begin(); iter != deadlock_road_into_road_count.end(); iter ++) {
+        if (!(iter->first)->if_no_car_through_cross() && (iter->second != 0)) {
+            deadlock_road_count ++;
             //iter->add_deadlock_situation_car_running_in_road(max(0, T - 100), T + 50, 1);
-            vector<car> deadlock_car = iter->get_deadlock_car();
+            vector<car> deadlock_car = iter->first->get_deadlock_car();
             int road_count = 0;
             for (vector<car>::iterator car_iter = deadlock_car.begin(); car_iter != deadlock_car.end(); car_iter ++) {
                 if (car_iter->get_whether_preset() == 0) {
@@ -393,10 +433,10 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
                     }
                 }
             }
-            road_id.push_back(iter->get_id());
         }
     }
     cout << "deadlock count = " << count << endl;
+    cout << "deadlock road count = " << deadlock_road_count << endl;
     if (count == 0) {
         for (vector<car>::iterator car_iter = this->cars_start_run.begin(); car_iter != this->cars_start_run.end(); car_iter ++) {
             if (this->cars[car_iter->get_id()].get_whether_finish_find_path() == 1) {
