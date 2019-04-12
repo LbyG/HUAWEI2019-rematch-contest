@@ -28,6 +28,7 @@ public:
     double congestion_metric = 0.8;
     // deadlock only withdraw max_withdraw_in_road car in a road
     int max_withdraw_in_road = 10;
+    int max_withdraw_by_random = 100;
     // if deadlock car not in this epoch schedule, then use 1/metric ratio to abondon
     int prevent_deadlock_metric = 10;
     // channel for road capacity is channel_metric^channel

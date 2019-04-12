@@ -12,6 +12,8 @@ TODO<br>
 * 同时处理优先车辆的cars_together_path_regulation()比先处理优先车辆后处理非优先车辆的cars_path_regulation()性能差不多，但速度会快很多
 * 修改了road::get_deadlock_car(),优先撤回在路口距离小于road->speed的死锁等待车辆，如果没有这种车辆，则返回整个道路中的死锁等待车辆
 * 进一步优化解死锁的算法overall_schedule::prevent_deadlock，只解锁死锁环道路上的死锁等待车辆
+4.12版本
+对空间的使用滚动数组，以节约空间
 
 4.11号<br>
 * 修改了一个巨大的bug，之前对于规划车辆的发车时间设置错误！！！！

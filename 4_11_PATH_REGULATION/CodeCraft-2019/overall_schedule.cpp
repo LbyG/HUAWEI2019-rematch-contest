@@ -437,11 +437,16 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
     }
     cout << "deadlock count = " << count << endl;
     cout << "deadlock road count = " << deadlock_road_count << endl;
+    int withdraw_count = 0;
     if (count == 0) {
         for (vector<car>::iterator car_iter = this->cars_start_run.begin(); car_iter != this->cars_start_run.end(); car_iter ++) {
             if (this->cars[car_iter->get_id()].get_whether_finish_find_path() == 1) {
-                if (count % this->my_config.prevent_deadlock_metric == 0)
+                if (count % this->my_config.prevent_deadlock_metric == 0) {
                     this->cars[car_iter->get_id()].set_whether_finish_find_path(0);
+                    withdraw_count ++;
+                    if (withdraw_count > this->my_config.max_withdraw_by_random)
+                        break;
+                }
                 count ++;
             }
         }
