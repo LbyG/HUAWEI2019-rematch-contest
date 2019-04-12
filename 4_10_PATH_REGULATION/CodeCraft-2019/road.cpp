@@ -347,13 +347,20 @@ int road::car_into_road(car into_car) {
 // get car in road and schedule status is 1(wait status)
 vector<car> road::get_deadlock_car() {
     vector<car> deadlock_car;
+    vector<car> deadlock_car_in_road;
     for (vector<list<car>>::iterator iter = this->cars_in_road.begin(); iter != this->cars_in_road.end(); iter ++) {
         for (list<car>::iterator car_iter = iter->begin(); car_iter != iter->end(); car_iter ++) {
-            if (car_iter->get_schedule_status() == 1)
-                deadlock_car.push_back(*car_iter);
+            if (car_iter->get_schedule_status() == 1) {
+                deadlock_car_in_road.push_back(*car_iter);
+                 if (car_iter->get_dis_to_cross() < this->speed)
+                     deadlock_car.push_back(*car_iter);
+            }
         }
     }
-    return deadlock_car;
+    if (!deadlock_car.empty())
+        return deadlock_car;
+    else
+        return deadlock_car_in_road;
 }
 
 // output road status
