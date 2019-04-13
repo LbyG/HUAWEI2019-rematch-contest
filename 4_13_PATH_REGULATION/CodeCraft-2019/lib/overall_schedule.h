@@ -21,8 +21,6 @@ private:
     int epoch_start_time = 0;
     // path regulation variate==================================
     config my_config = config();
-    int deadlock_step = 0;
-    int deadlock_epoch_step = 0;
     long double metric_a;
     long double metric_b;
     vector<long double> priority_weight;

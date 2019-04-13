@@ -18,7 +18,9 @@ public:
     // situation_car_running_in_road[max_T], situation_car_into_road[max_T][priority_N][direct_N - 1] 
     int max_T = 500;
     int max_channel = 100;
-    int max_path_regulation_fail_count = 200000;
+    int max_path_regulation_fail_count = 2000000;
+    // car start run cars in a epoch don't excess max_start_run_in_epoch, set low can accelerate speed
+    int max_start_run_in_epoch = 3300;
     // if car number / capacity > max_car_capacity_ratio in one time, then this road can't through
     double max_car_capacity_ratio = 1.0;
     // if sum car number / sum capacity > max_car_capacity_sum_ratio, then this road can't through
