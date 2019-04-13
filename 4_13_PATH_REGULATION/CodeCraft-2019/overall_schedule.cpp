@@ -392,6 +392,8 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
             if (now_road == NULL) {
                 cout << "overall_schedule::prevent_deadlock error!!!!!!!!!!!!!!!!!!!!!!!" << endl;
             }
+            if (next_road_id == -1)
+                continue;
             road* next_road = through_cross.get_road_departure_cross()[next_road_id];
             
             deadlock_road_into_road[now_road] = next_road;

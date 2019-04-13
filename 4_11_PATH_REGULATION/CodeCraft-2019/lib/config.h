@@ -19,6 +19,7 @@ public:
     int max_T = 3000;
     int max_channel = 100;
     int max_path_regulation_fail_count = 200000;
+    int max_start_run_in_epoch = 40000;
     // if car number / capacity > max_car_capacity_ratio in one time, then this road can't through
     double max_car_capacity_ratio = 1.0;
     // if sum car number / sum capacity > max_car_capacity_sum_ratio, then this road can't through
@@ -34,7 +35,7 @@ public:
     // channel for road capacity is channel_metric^channel
     double channel_metric = 0.8;
     // road capacity metric
-    double capacity_metric = 1.0;
+    double capacity_metric = 0.8;
     vector<double> channel_weight;
     double count_capacity(int channel, int length, int speed);
     double get_channel_weight(int channel);

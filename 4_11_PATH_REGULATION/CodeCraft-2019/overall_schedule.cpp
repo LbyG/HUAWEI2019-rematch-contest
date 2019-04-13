@@ -376,6 +376,7 @@ void overall_schedule::output_schedule_status() {
 void overall_schedule::prevent_deadlock(int T, int car_priority) {
     // find deadlock cycle road======================================================
     map<road*, int> deadlock_road_into_road_count;
+    deadlock_road_into_road_count.clear();
     map<road*, road*> deadlock_road_into_road;
     for (list<road>::iterator iter = roads_connect_cross.begin(); iter != roads_connect_cross.end(); iter ++) {
         if (!iter->if_no_car_through_cross()) {
@@ -391,8 +392,9 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
             if (now_road == NULL) {
                 cout << "overall_schedule::prevent_deadlock error!!!!!!!!!!!!!!!!!!!!!!!" << endl;
             }
+            if (next_road_id == -1)
+                continue;
             road* next_road = through_cross.get_road_departure_cross()[next_road_id];
-            
             deadlock_road_into_road[now_road] = next_road;
             deadlock_road_into_road_count[next_road] ++;
             deadlock_road_into_road_count[now_road] = deadlock_road_into_road_count[now_road];
@@ -406,6 +408,8 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
     while (!road_list.empty()) {
         road* now_road = road_list.front();
         road_list.pop_front();
+        if (deadlock_road_into_road[now_road] == 0)
+            continue;
         road* next_road = deadlock_road_into_road[now_road];
         deadlock_road_into_road_count[next_road] --;
         if (deadlock_road_into_road_count[next_road] == 0)
@@ -650,7 +654,7 @@ void overall_schedule::cars_path_regulation() {
             this->car_can_from_to_flag = vector<map<int, int>>(schedule_step, map<int, int>());
             for (vector<car>::iterator car_iter = this->cars_arrive_schedule_start_time.begin(); car_iter != this->cars_arrive_schedule_start_time.end(); car_iter ++) {
                 int flag = -1;
-                if (path_regulation_fail_count < this->my_config.max_path_regulation_fail_count)
+                if (path_regulation_fail_count < this->my_config.max_path_regulation_fail_count && this->cars_start_run.size() < this->my_config.max_start_run_in_epoch)
                     for (int i = start_time; i < start_time + schedule_step; i += max(1, schedule_step / 10)) {
                         this->car_can_from_to_time = i - start_time;
                         if (this->car_can_from_to[this->car_can_from_to_time][car_iter->get_from()][car_iter->get_to()] == this->car_can_from_to_flag[this->car_can_from_to_time][car_iter->get_from()]) {
@@ -713,7 +717,7 @@ void overall_schedule::cars_path_regulation() {
             }
             this->cars_arrive_schedule_start_time = this->cars_wait_run;
             start_time += schedule_step;
-            if (car_priority == 0 && this->cars_arrive_schedule_start_time.size() < 5000)
+            if (car_priority == 0 && (this->cars_arrive_schedule_start_time.size() + wait_schedule_time_car_N) < 5000)
                 schedule_step = 1;
             else if (car_priority == 0 && this->cars_arrive_schedule_start_time.size() > 5000)
                 schedule_step = 50;
@@ -780,7 +784,7 @@ void overall_schedule::cars_together_path_regulation() {
         this->car_can_from_to_flag = vector<map<int, int>>(schedule_step, map<int, int>());
         for (vector<car>::iterator car_iter = this->cars_arrive_schedule_start_time.begin(); car_iter != this->cars_arrive_schedule_start_time.end(); car_iter ++) {
             int flag = -1;
-            if (path_regulation_fail_count < this->my_config.max_path_regulation_fail_count)
+            if (path_regulation_fail_count < this->my_config.max_path_regulation_fail_count && this->cars_start_run.size() < this->my_config.max_start_run_in_epoch)
                 for (int i = start_time; i < start_time + schedule_step; i += max(1, schedule_step / 10)) {
                     this->car_can_from_to_time = i - start_time;
                     if (this->car_can_from_to[this->car_can_from_to_time][car_iter->get_from()][car_iter->get_to()] == this->car_can_from_to_flag[this->car_can_from_to_time][car_iter->get_from()]) {
@@ -843,7 +847,7 @@ void overall_schedule::cars_together_path_regulation() {
         }
         this->cars_arrive_schedule_start_time = this->cars_wait_run;
         start_time += schedule_step;
-        if (this->cars_arrive_schedule_start_time.size() < 5000)
+        if ((this->cars_arrive_schedule_start_time.size() + wait_schedule_time_car_N) < 5000)
             schedule_step = 1;
         else if (this->cars_arrive_schedule_start_time.size() > 5000)
             schedule_step = 50;
