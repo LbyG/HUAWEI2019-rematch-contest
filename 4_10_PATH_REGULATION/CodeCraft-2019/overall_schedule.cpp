@@ -425,6 +425,8 @@ void overall_schedule::prevent_deadlock(int T, int car_priority) {
     while (!road_list.empty()) {
         road* now_road = road_list.front();
         road_list.pop_front();
+        if (deadlock_road_into_road[now_road] == 0)
+            continue;
         road* next_road = deadlock_road_into_road[now_road];
         deadlock_road_into_road_count[next_road] --;
         if (deadlock_road_into_road_count[next_road] == 0)
